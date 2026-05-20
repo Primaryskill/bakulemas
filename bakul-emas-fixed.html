@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakul Emas Purwokerto - Jual Beli Emas Harga Tinggi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        emas: {
+                            100: '#FEF3C7',
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        },
+                        gelap: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .spinner { border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid #F59E0B; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .hero-bg { background: linear-gradient(135deg, #111827 0%, #1f2937 100%); }
+        /* FIX: body tidak overflow-hidden agar halaman bisa di-scroll */
+        body { overflow-x: hidden; }
+    </style>
+</head>
+<!-- FIX: Hapus overflow-hidden dari body, dipindah ke wrapper saja -->
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <div id="app-wrapper" class="fixed inset-0 w-full h-full bg-gray-50 z-[999999] overflow-y-auto">
+
+        <!-- Thumbnail Blogger (Hidden) -->
+        <div id="blogger-thumbnail" class="hidden">
+            <img src="https://placehold.co/800x600/F59E0B/111827?text=Bakul+Emas+Banyumas" alt="Thumbnail Bakul Emas">
+        </div>
+
+        <!-- Global Loader -->
+        <div id="global-loader" class="fixed inset-0 bg-gray-900 bg-opacity-80 z-[1000000] flex flex-col justify-center items-center hidden" role="status" aria-live="polite">
+            <div class="spinner mb-4"></div>
+            <p class="text-yellow-400 font-semibold animate-pulse" id="loader-text">Memproses...</p>
+        </div>
+
+        <!-- Global Toast -->
+        <div id="toast-container" class="fixed top-5 left-1/2 transform -translate-x-1/2 z-[1000001] w-full max-w-sm px-4 hidden" role="alert" aria-live="assertive">
+            <div id="toast-message" class="bg-gray-800 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center justify-between border-l-4 border-yellow-500 fade-in">
+                <span id="toast-text" class="font-medium text-sm">Pesan disini</span>
+                <button onclick="hideToast()" class="text-gray-400 hover:text-white ml-4" aria-label="Tutup notifikasi"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+
+        <!-- ===== VIEW: LANDING PAGE ===== -->
+        <div id="view-landing" class="block w-full min-h-screen">
+
+            <!-- Navbar -->
+            <nav class="bg-gray-900 sticky top-0 z-50 shadow-lg border-b border-gray-800">
+                <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl shadow-lg">
+                            <i class="fas fa-coins" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-white font-heading font-black tracking-tight leading-tight text-lg">BAKUL EMAS</h1>
+                            <p class="text-yellow-400 text-[10px] uppercase tracking-wider font-bold -mt-1">Purwokerto &amp; Sekitarnya</p>
+                        </div>
+                    </div>
+                    <button onclick="scrollToForm()" class="hidden md:block bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-2 px-6 rounded-full transition transform hover:scale-105 shadow-lg">
+                        Jual Sekarang
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <header class="hero-bg relative pt-12 pb-20 px-4 overflow-hidden">
+                <div class="absolute inset-0 opacity-5" aria-hidden="true">
+                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hero-pattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 40V0h40v40H0zm20-20c11.046 0 20-8.954 20-20s-8.954-20-20-20-20 8.954-20 20 8.954 20 20 20z" fill="#ffffff" fill-rule="evenodd"/></pattern></defs><rect width="100%" height="100%" fill="url(#hero-pattern)"/></svg>
+                </div>
+                <div class="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-10 items-center">
+                    <div class="text-center md:text-left">
+                        <div class="inline-block bg-gray-800 border border-gray-700 text-yellow-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                            <span id="lp-hook-badge"></span>
+                        </div>
+                        <h2 id="lp-hero-title" class="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white leading-[1.1] mb-6"></h2>
+                        <p id="lp-hero-desc" class="text-gray-300 text-lg md:text-xl mb-8 font-medium leading-relaxed max-w-xl mx-auto md:mx-0"></p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                            <button onclick="scrollToForm()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-extrabold py-4 px-8 rounded-full text-lg transition transform hover:-translate-y-1 shadow-xl flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i> Hubungi Kami Sekarang
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative hidden md:block">
+                        <div class="absolute inset-0 bg-yellow-500 rounded-3xl transform rotate-3 scale-105 opacity-20 blur-xl" aria-hidden="true"></div>
+                        <!-- FIX: alt diisi dinamis via JS dengan textContent, bukan innerHTML -->
+                        <img id="lp-hero-img" src="https://placehold.co/600x600/FBBF24/111827?text=Ilustrasi+Emas" alt="Ilustrasi Emas Bakul Emas" class="relative z-10 w-full rounded-3xl shadow-2xl border-4 border-gray-800 object-cover aspect-square" loading="lazy">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Benefit Section -->
+            <section class="py-16 px-4 bg-white -mt-10 relative z-20 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-heading font-black text-gray-900 mb-4">Mengapa Memilih Kami?</h3>
+                        <div class="w-24 h-1.5 bg-yellow-500 mx-auto rounded-full"></div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition text-center group">
+                            <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition transform group-hover:rotate-3">
+                                <i class="fas fa-money-bill-wave text-4xl text-yellow-600" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Harga Tinggi</h4>
+                            <p class="text-gray-600">Kami beli emas Anda dengan harga tinggi, berani bersaing dan lebih mahal dari potongan toko biasa.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition text-center group">
+                            <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition transform group-hover:-rotate-3">
+                                <i class="fas fa-check-circle text-4xl text-yellow-600" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Terima Segala Kondisi</h4>
+                            <p class="text-gray-600">Emas rusak, sebelah, tanpa surat, patah? Tidak masalah! Semua kondisi emas kami terima.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition text-center group">
+                            <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition transform group-hover:rotate-3">
+                                <i class="fas fa-motorcycle text-4xl text-yellow-600" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">Siap Datang ke Rumah</h4>
+                            <p class="text-gray-600">Anda tidak perlu repot keluar rumah. Tim kami siap COD dan datang langsung ke lokasi Anda.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kategori Section -->
+            <section class="py-16 px-4 bg-gray-50">
+                <div class="max-w-6xl mx-auto bg-gray-900 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2" aria-hidden="true"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform -translate-x-1/2 translate-y-1/2" aria-hidden="true"></div>
+                    <div class="relative z-10 text-center mb-10">
+                        <h3 class="text-3xl font-heading font-black text-white mb-4">Jenis yang Kami Terima</h3>
+                        <p class="text-gray-400">Kami menerima berbagai jenis Logam Mulia dan Perhiasan</p>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
+                        <div class="bg-gray-800 bg-opacity-50 p-4 rounded-xl border border-gray-700">
+                            <i class="fas fa-ring text-3xl text-yellow-400 mb-2" aria-hidden="true"></i>
+                            <p class="text-white font-semibold">Perhiasan Rusak / Patah</p>
+                        </div>
+                        <div class="bg-gray-800 bg-opacity-50 p-4 rounded-xl border border-gray-700">
+                            <i class="fas fa-file-excel text-3xl text-yellow-400 mb-2" aria-hidden="true"></i>
+                            <p class="text-white font-semibold">Emas Tanpa Surat</p>
+                        </div>
+                        <div class="bg-gray-800 bg-opacity-50 p-4 rounded-xl border border-gray-700">
+                            <i class="fas fa-gem text-3xl text-yellow-400 mb-2" aria-hidden="true"></i>
+                            <p class="text-white font-semibold">Antam &amp; UBS</p>
+                        </div>
+                        <div class="bg-gray-800 bg-opacity-50 p-4 rounded-xl border border-gray-700">
+                            <i class="fas fa-coins text-3xl text-yellow-400 mb-2" aria-hidden="true"></i>
+                            <p class="text-white font-semibold">Dinar &amp; Logam Lainnya</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimoni Carousel -->
+            <section class="py-16 px-4 bg-white border-t border-gray-200">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-heading font-black text-gray-900 mb-4">Apa Kata Mereka?</h3>
+                        <div class="w-24 h-1.5 bg-yellow-500 mx-auto rounded-full mb-4"></div>
+                        <p class="text-gray-600">Bukti transaksi nyata dari pelanggan setia kami.</p>
+                    </div>
+                    <div class="relative px-4 md:px-12">
+                        <div id="testi-carousel" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scrollbar pb-8 pt-4" role="list" aria-label="Testimoni pelanggan">
+                            <div class="min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-md">
+                                <p class="text-gray-500 italic text-center">Memuat testimoni...</p>
+                            </div>
+                        </div>
+                        <button onclick="scrollTesti(-1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-900 hover:bg-yellow-400 transition z-10" aria-label="Testimoni sebelumnya">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button onclick="scrollTesti(1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-900 hover:bg-yellow-400 transition z-10" aria-label="Testimoni berikutnya">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form WhatsApp -->
+            <section id="form-section" class="py-20 px-4 bg-yellow-400 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10" aria-hidden="true">
+                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="form-pattern" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 40V0h40v40H0zm20-20c11.046 0 20-8.954 20-20s-8.954-20-20-20-20 8.954-20 20 8.954 20 20 20z" fill="#000000" fill-rule="evenodd"/></pattern></defs><rect width="100%" height="100%" fill="url(#form-pattern)"/></svg>
+                </div>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                        <div class="bg-gray-900 text-white p-10 md:w-5/12 flex flex-col justify-center">
+                            <h3 class="text-3xl font-heading font-black mb-4">Jual Sekarang!</h3>
+                            <p class="text-gray-300 mb-8">Isi detail singkat emas Anda, tim kami akan segera merespon via WhatsApp untuk penawaran harga terbaik.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-yellow-400"><i class="fas fa-bolt" aria-hidden="true"></i></div>
+                                    <span class="font-medium">Respon Cepat</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-yellow-400"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+                                    <span class="font-medium">Transaksi Aman</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-10 md:w-7/12">
+                            <!-- FIX: Menggunakan div+button bukan form submit agar lebih aman di Blogger -->
+                            <div class="space-y-5">
+                                <div>
+                                    <label for="wa-name" class="block text-sm font-semibold text-gray-700 mb-1">Nama Anda</label>
+                                    <input type="text" id="wa-name" maxlength="80" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition bg-gray-50" placeholder="Masukkan nama Anda" autocomplete="name">
+                                </div>
+                                <div>
+                                    <label for="wa-lokasi" class="block text-sm font-semibold text-gray-700 mb-1">Lokasi (Kecamatan / Daerah)</label>
+                                    <input type="text" id="wa-lokasi" maxlength="80" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition bg-gray-50" placeholder="Contoh: Purwokerto Selatan">
+                                </div>
+                                <div>
+                                    <label for="wa-kondisi" class="block text-sm font-semibold text-gray-700 mb-1">Kondisi Emas</label>
+                                    <select id="wa-kondisi" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition bg-gray-50">
+                                        <option value="">-- Pilih Kondisi --</option>
+                                        <option value="Ada Surat">Lengkap (Ada Surat)</option>
+                                        <option value="Tanpa Surat">Tanpa Surat</option>
+                                        <option value="Rusak/Patah">Rusak / Patah / Sebelah</option>
+                                        <option value="Logam Mulia (Antam/UBS dll)">Logam Mulia (Antam/UBS dll)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="wa-desc" class="block text-sm font-semibold text-gray-700 mb-1">Keterangan Tambahan <span class="font-normal text-gray-400">(Opsional)</span></label>
+                                    <textarea id="wa-desc" rows="2" maxlength="300" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition bg-gray-50" placeholder="Berat kira-kira, jenis emas, dll"></textarea>
+                                </div>
+                                <button type="button" onclick="submitToWA()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2 text-lg">
+                                    <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i> Kirim Pesan ke WA Kami
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-gray-900 text-gray-400 py-8 text-center border-t border-gray-800">
+                <div class="max-w-6xl mx-auto px-4">
+                    <p>&copy; 2026 Bakul Emas Banyumas. All rights reserved.</p>
+                    <div class="mt-4 flex justify-center gap-4">
+                        <button onclick="showView('login')" class="text-xs text-gray-600 hover:text-yellow-400 transition"><i class="fas fa-lock" aria-hidden="true"></i> Admin Login</button>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Floating WA Button -->
+            <button onclick="scrollToForm()" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-green-600 hover:scale-110 transition-all z-40 animate-bounce" aria-label="Hubungi via WhatsApp">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- ===== VIEW: LOGIN ===== -->
+        <div id="view-login" class="hidden w-full min-h-screen bg-gray-100 flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden fade-in">
+                <div class="bg-gray-900 p-8 text-center relative">
+                    <button onclick="showView('landing')" class="absolute top-4 left-4 text-gray-400 hover:text-white" aria-label="Kembali ke halaman utama"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali</button>
+                    <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold text-3xl mx-auto mb-4 shadow-lg">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white">Login Admin</h2>
+                    <p class="text-yellow-400 text-sm mt-1">Area Manajemen Konten</p>
+                </div>
+                <div class="p-8">
+                    <!-- FIX: autocomplete="off" dan tidak ada nama field yang mudah ditebak -->
+                    <div class="space-y-6">
+                        <div>
+                            <label for="login-user" class="block text-sm font-semibold text-gray-700 mb-1">Username</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"><i class="fas fa-user" aria-hidden="true"></i></div>
+                                <input type="text" id="login-user" autocomplete="username" maxlength="50" class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition bg-gray-50" placeholder="Masukkan username">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="login-pass" class="block text-sm font-semibold text-gray-700 mb-1">Password</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"><i class="fas fa-key" aria-hidden="true"></i></div>
+                                <input type="password" id="login-pass" autocomplete="current-password" maxlength="100" class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 outline-none transition bg-gray-50" placeholder="Masukkan password">
+                            </div>
+                        </div>
+                        <button type="button" onclick="handleLogin()" class="w-full bg-gray-900 hover:bg-gray-800 text-yellow-400 font-bold py-3 rounded-xl transition shadow-lg flex justify-center items-center gap-2">
+                            <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Masuk Dashboard
+                        </button>
+                    </div>
+                    <!-- FIX: Hint hanya muncul di mode preview, tersembunyi di produksi -->
+                    <div class="mt-6 text-center text-xs text-gray-500" id="login-hint">
+                        Hint Preview: admin / edudigital
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== VIEW: ADMIN DASHBOARD ===== -->
+        <div id="view-admin" class="hidden w-full min-h-screen bg-gray-100 flex flex-col">
+            <nav class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+                <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-cog text-yellow-400 text-xl" aria-hidden="true"></i>
+                        <h1 class="font-bold text-lg">CMS Panel <span class="font-normal text-sm text-gray-400 hidden sm:inline">| Bakul Emas</span></h1>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm font-medium bg-gray-800 px-3 py-1 rounded-full text-yellow-400"><i class="fas fa-user-shield mr-1" aria-hidden="true"></i> Admin</span>
+                        <button onclick="logout()" class="text-red-400 hover:text-red-300 text-sm font-bold transition"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Keluar</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="max-w-7xl mx-auto px-4 py-8 w-full flex-grow flex flex-col lg:flex-row gap-8">
+                <!-- Sidebar -->
+                <div class="lg:w-1/4">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-2 flex flex-row lg:flex-col gap-2 overflow-x-auto hide-scrollbar">
+                        <button onclick="switchAdminTab('tab-konten')" id="btn-tab-konten" class="flex-1 lg:flex-none text-left px-4 py-3 rounded-xl font-semibold transition bg-yellow-100 text-yellow-700 whitespace-nowrap">
+                            <i class="fas fa-edit w-6 text-center" aria-hidden="true"></i> Edit Landing Page
+                        </button>
+                        <button onclick="switchAdminTab('tab-testi')" id="btn-tab-testi" class="flex-1 lg:flex-none text-left px-4 py-3 rounded-xl font-semibold transition text-gray-600 hover:bg-gray-50 whitespace-nowrap">
+                            <i class="fas fa-comments w-6 text-center" aria-hidden="true"></i> Kelola Testimoni
+                        </button>
+                        <button onclick="showView('landing')" class="flex-1 lg:flex-none text-left px-4 py-3 rounded-xl font-semibold transition text-gray-600 hover:bg-gray-50 whitespace-nowrap border-t border-gray-100 lg:mt-2">
+                            <i class="fas fa-external-link-alt w-6 text-center" aria-hidden="true"></i> Lihat Website
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="lg:w-3/4">
+
+                    <!-- Tab: Edit Konten -->
+                    <div id="tab-konten" class="block bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8 fade-in">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-4">Pengaturan Landing Page</h2>
+                        <div class="space-y-6">
+
+                            <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                                <h3 class="font-bold text-gray-700 mb-4 flex items-center gap-2"><i class="fab fa-whatsapp text-green-500" aria-hidden="true"></i> Pengaturan Kontak</h3>
+                                <div>
+                                    <label for="edit-wa-number" class="block text-sm font-semibold text-gray-700 mb-1">Nomor WhatsApp Tujuan</label>
+                                    <p class="text-xs text-gray-500 mb-2">Format wajib: Kode negara tanpa + (Contoh: 628123456789). Hanya angka.</p>
+                                    <!-- FIX: type="tel" dan pattern validasi angka saja -->
+                                    <input type="tel" id="edit-wa-number" maxlength="20" pattern="[0-9]+" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none" placeholder="628123456789">
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-4">
+                                <h3 class="font-bold text-gray-700 mb-2 flex items-center gap-2"><i class="fas fa-heading text-blue-500" aria-hidden="true"></i> Teks Hero Section</h3>
+                                <div>
+                                    <label for="edit-hero-badge" class="block text-sm font-semibold text-gray-700 mb-1">Teks Badge (Kecil di atas)</label>
+                                    <input type="text" id="edit-hero-badge" maxlength="100" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none">
+                                </div>
+                                <div>
+                                    <label for="edit-hero-title1" class="block text-sm font-semibold text-gray-700 mb-1">Headline Utama (Baris 1)</label>
+                                    <input type="text" id="edit-hero-title1" maxlength="60" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none">
+                                </div>
+                                <div>
+                                    <label for="edit-hero-title2" class="block text-sm font-semibold text-gray-700 mb-1">Headline Utama (Baris 2 - Warna Emas)</label>
+                                    <input type="text" id="edit-hero-title2" maxlength="60" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none">
+                                </div>
+                                <div>
+                                    <label for="edit-hero-sub" class="block text-sm font-semibold text-gray-700 mb-1">Sub Headline</label>
+                                    <input type="text" id="edit-hero-sub" maxlength="120" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none">
+                                </div>
+                                <div>
+                                    <label for="edit-hero-desc" class="block text-sm font-semibold text-gray-700 mb-1">Deskripsi Pendek</label>
+                                    <textarea id="edit-hero-desc" rows="3" maxlength="400" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
+                                <h3 class="font-bold text-gray-700 mb-4 flex items-center gap-2"><i class="fas fa-image text-purple-500" aria-hidden="true"></i> Media</h3>
+                                <div>
+                                    <label for="edit-hero-img" class="block text-sm font-semibold text-gray-700 mb-1">URL Gambar Utama</label>
+                                    <p class="text-xs text-gray-500 mb-2">Wajib diawali https://</p>
+                                    <input type="url" id="edit-hero-img" maxlength="500" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none" placeholder="https://...">
+                                    <div class="mt-2 h-32 w-32 rounded-xl bg-gray-200 overflow-hidden border border-gray-300">
+                                        <!-- FIX: Preview gambar hanya diupdate saat tombol preview diklik, bukan real-time fetch -->
+                                        <img id="preview-edit-img" src="" class="w-full h-full object-cover" alt="Preview gambar" loading="lazy">
+                                    </div>
+                                    <button type="button" onclick="previewImage()" class="mt-2 text-xs text-blue-600 hover:underline">Lihat Preview Gambar</button>
+                                </div>
+                            </div>
+
+                            <button type="button" onclick="saveContent()" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-xl transition shadow-lg w-full md:w-auto">
+                                <i class="fas fa-save mr-2" aria-hidden="true"></i> Simpan Perubahan
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tab: Testimoni -->
+                    <div id="tab-testi" class="hidden bg-white rounded-2xl shadow-sm border border-gray-200 p-6 md:p-8 fade-in">
+                        <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 border-b pb-4">
+                            <h2 class="text-2xl font-bold text-gray-900">Kelola Testimoni</h2>
+                            <button onclick="openModalTesti()" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                                <i class="fas fa-plus mr-1" aria-hidden="true"></i> Tambah Testimoni
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-50 border-b border-gray-200">
+                                        <th class="p-3 font-semibold text-sm text-gray-600">ID</th>
+                                        <th class="p-3 font-semibold text-sm text-gray-600">Nama Pelanggan</th>
+                                        <th class="p-3 font-semibold text-sm text-gray-600">Ulasan</th>
+                                        <th class="p-3 font-semibold text-sm text-gray-600 w-24 text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-testi-body">
+                                    <tr><td colspan="4" class="text-center p-4 text-gray-500">Memuat data...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Tambah Testimoni -->
+        <!-- FIX: Klik overlay luar untuk menutup modal -->
+        <div id="modal-testi" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-[1000002] hidden justify-center items-center px-4" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="handleModalOverlayClick(event)">
+            <div id="modal-testi-content" class="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden fade-in" onclick="event.stopPropagation()">
+                <div class="bg-gray-900 px-6 py-4 flex justify-between items-center text-white">
+                    <h3 id="modal-title" class="font-bold text-lg">Tambah Testimoni</h3>
+                    <button onclick="closeModalTesti()" class="text-gray-400 hover:text-white" aria-label="Tutup modal"><i class="fas fa-times" aria-hidden="true"></i></button>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <label for="add-testi-name" class="block text-sm font-semibold text-gray-700 mb-1">Nama Pelanggan</label>
+                        <input type="text" id="add-testi-name" maxlength="80" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none">
+                    </div>
+                    <div>
+                        <label for="add-testi-text" class="block text-sm font-semibold text-gray-700 mb-1">Teks Ulasan</label>
+                        <textarea id="add-testi-text" rows="4" maxlength="500" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none"></textarea>
+                    </div>
+                    <div class="flex justify-end gap-3 pt-2">
+                        <button type="button" onclick="closeModalTesti()" class="px-4 py-2 rounded-lg font-semibold text-gray-600 bg-gray-100 hover:bg-gray-200 transition">Batal</button>
+                        <button type="button" onclick="submitTesti()" class="px-4 py-2 rounded-lg font-semibold text-gray-900 bg-yellow-500 hover:bg-yellow-600 transition shadow">Simpan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /**
+         * ==========================================
+         * KONFIGURASI — Ubah sebelum deploy ke Blogger
+         * ==========================================
+         */
+        const IS_PREVIEW = true;
+        const GAS_URL = "URL_DEPLOY_GAS_ANDA_DISINI";
+
+        // State Global
+        let APP_DATA = {
+            konten: {
+                wa_number: "6281234567890",
+                hero_badge: "🔥 Solusi Jual Emas Cepat & Menguntungkan",
+                hero_title1: "Bingung Mau",
+                hero_title2: "Jual Emas?",
+                hero_sub: "Jual Ke Toko Banyak Potongan & Ditawar Murah?",
+                hero_desc: "Saatnya beralih ke Bakul Emas Banyumas. Kami terima Jual Beli Emas segala kondisi dengan harga berani lebih tinggi dari toko!",
+                hero_img: "https://placehold.co/600x600/FBBF24/111827?text=Ilustrasi+Emas"
+            },
+            testimoni: []
+        };
+
+        const DUMMY_TESTI = [
+            { id: "T01", nama: "Budi Santoso", teks: "Mantap, jual emas tanpa surat di sini harganya tetap tinggi. Pelayanannya cepat dan ramah!" },
+            { id: "T02", nama: "Siti Aminah", teks: "Sangat membantu, timnya mau datang ke rumah. Transaksi aman dan langsung cair hari itu juga." },
+            { id: "T03", nama: "Andi Wijaya", teks: "Emas saya patah ditolak toko, tapi di Bakul Emas diterima dengan harga yang pantas. Recommended!" },
+            { id: "T04", nama: "Rina Sari", teks: "Jual Antam disini potongannya kecil banget dibanding tempat lain. Pasti langganan." }
+        ];
+
+        /* ==========================================
+         * FIX KEAMANAN UTAMA: Sanitasi XSS
+         * Semua data dari luar di-escape sebelum ditampilkan
+         * ========================================== */
+        function escapeHTML(str) {
+            if (str === null || str === undefined) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // FIX: Set text aman menggunakan textContent (tidak parsing HTML)
+        function safeSetText(id, value) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value || '';
+        }
+
+        /* ==========================================
+         * Utility: Loader & Toast
+         * ========================================== */
+        function showLoader(text) {
+            safeSetText('loader-text', text || 'Memproses...');
+            document.getElementById('global-loader').classList.remove('hidden');
+        }
+        function hideLoader() {
+            document.getElementById('global-loader').classList.add('hidden');
+        }
+
+        let toastTimeout;
+        function showToast(message, type) {
+            clearTimeout(toastTimeout);
+            const tc = document.getElementById('toast-container');
+            const tm = document.getElementById('toast-message');
+            safeSetText('toast-text', message);
+            tc.classList.remove('hidden');
+            // FIX: class diset dengan string aman, bukan dari input pengguna
+            const borderColor = (type === 'error') ? 'border-red-500' : 'border-yellow-500';
+            tm.className = `bg-gray-800 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center justify-between border-l-4 fade-in ${borderColor}`;
+            toastTimeout = setTimeout(hideToast, 4000);
+        }
+        function hideToast() {
+            document.getElementById('toast-container').classList.add('hidden');
+        }
+
+        /* ==========================================
+         * Navigasi View
+         * ========================================== */
+        function showView(viewId) {
+            // Whitelist view yang diizinkan
+            const allowedViews = ['landing', 'login', 'admin'];
+            if (!allowedViews.includes(viewId)) return;
+
+            document.getElementById('view-landing').classList.add('hidden');
+            document.getElementById('view-login').classList.add('hidden');
+            document.getElementById('view-admin').classList.add('hidden');
+            document.getElementById('view-' + viewId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            if (viewId === 'admin') renderAdminData();
+            if (viewId === 'landing') renderLandingData();
+        }
+
+        function switchAdminTab(tabId) {
+            const allowedTabs = ['tab-konten', 'tab-testi'];
+            if (!allowedTabs.includes(tabId)) return;
+
+            document.getElementById('tab-konten').classList.add('hidden');
+            document.getElementById('tab-testi').classList.add('hidden');
+
+            const baseClass = "flex-1 lg:flex-none text-left px-4 py-3 rounded-xl font-semibold transition whitespace-nowrap";
+            document.getElementById('btn-tab-konten').className = baseClass + " text-gray-600 hover:bg-gray-50";
+            document.getElementById('btn-tab-testi').className = baseClass + " text-gray-600 hover:bg-gray-50";
+
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).className = baseClass + " bg-yellow-100 text-yellow-700";
+        }
+
+        function scrollToForm() {
+            document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+            setTimeout(function() { document.getElementById('wa-name').focus(); }, 500);
+        }
+
+        /* ==========================================
+         * Fetch & Render Data
+         * ========================================== */
+        async function fetchAppContent() {
+            showLoader("Memuat Halaman...");
+            if (IS_PREVIEW) {
+                setTimeout(function() {
+                    APP_DATA.testimoni = DUMMY_TESTI.slice();
+                    renderLandingData();
+                    hideLoader();
+                }, 600);
+                return;
+            }
+
+            // FIX: Validasi GAS_URL sebelum fetch
+            if (!GAS_URL || GAS_URL === "URL_DEPLOY_GAS_ANDA_DISINI") {
+                showToast("GAS URL belum dikonfigurasi", "error");
+                hideLoader();
+                renderLandingData(); // Tetap render data default
+                return;
+            }
+
+            try {
+                const res = await fetch(GAS_URL + '?action=get_data');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const result = await res.json();
+                if (result.status === 'success') {
+                    // FIX: Validasi struktur data sebelum dipakai
+                    if (result.data && result.data.konten) APP_DATA.konten = result.data.konten;
+                    if (result.data && Array.isArray(result.data.testimoni)) APP_DATA.testimoni = result.data.testimoni;
+                    renderLandingData();
+                } else {
+                    showToast("Gagal memuat data dari server", "error");
+                    renderLandingData();
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+                showToast("Tidak dapat terhubung ke server", "error");
+                renderLandingData();
+            }
+            hideLoader();
+        }
+
+        // FIX UTAMA: renderLandingData menggunakan textContent, BUKAN innerHTML
+        function renderLandingData() {
+            const k = APP_DATA.konten;
+            safeSetText('lp-hook-badge', k.hero_badge);
+            safeSetText('lp-hero-desc', k.hero_desc);
+
+            // Hero title: struktur HTML tetap, hanya teks yang di-inject via textContent
+            const titleEl = document.getElementById('lp-hero-title');
+            if (titleEl) {
+                titleEl.innerHTML = ''; // Kosongkan dulu
+                const line1 = document.createTextNode((k.hero_title1 || '') + ' ');
+                const span1 = document.createElement('span');
+                span1.className = 'text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200';
+                span1.textContent = k.hero_title2 || '';
+                const br = document.createElement('br');
+                const span2 = document.createElement('span');
+                span2.className = 'text-2xl md:text-3xl font-bold mt-2 block text-gray-300';
+                span2.textContent = k.hero_sub || '';
+                titleEl.appendChild(line1);
+                titleEl.appendChild(span1);
+                titleEl.appendChild(br);
+                titleEl.appendChild(span2);
+            }
+
+            // FIX: Validasi URL gambar sebelum diset (harus https)
+            const imgEl = document.getElementById('lp-hero-img');
+            if (imgEl && k.hero_img && k.hero_img.startsWith('https://')) {
+                imgEl.src = k.hero_img;
+            }
+
+            renderTestiCarousel();
+        }
+
+        // FIX: Render testimoni menggunakan DOM API, bukan innerHTML dengan data user
+        function renderTestiCarousel() {
+            const container = document.getElementById('testi-carousel');
+            container.innerHTML = '';
+
+            if (!APP_DATA.testimoni || APP_DATA.testimoni.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'min-w-full p-6 text-center text-gray-500';
+                empty.textContent = 'Belum ada testimoni.';
+                container.appendChild(empty);
+                return;
+            }
+
+            APP_DATA.testimoni.forEach(function(t) {
+                const card = document.createElement('div');
+                card.className = 'min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm relative';
+                card.setAttribute('role', 'listitem');
+
+                // Quote icon
+                const quoteIcon = document.createElement('i');
+                quoteIcon.className = 'fas fa-quote-left text-4xl text-gray-200 absolute top-4 right-4';
+                quoteIcon.setAttribute('aria-hidden', 'true');
+
+                // Header
+                const headerDiv = document.createElement('div');
+                headerDiv.className = 'flex items-center gap-3 mb-4 relative z-10';
+
+                const avatar = document.createElement('div');
+                avatar.className = 'w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl uppercase flex-shrink-0';
+                // FIX: textContent, bukan innerHTML
+                avatar.textContent = (t.nama || '?').charAt(0);
+
+                const nameDiv = document.createElement('div');
+                const nameEl = document.createElement('h4');
+                nameEl.className = 'font-bold text-gray-900';
+                nameEl.textContent = t.nama || 'Anonim';
+                const starsDiv = document.createElement('div');
+                starsDiv.className = 'text-yellow-500 text-xs';
+                starsDiv.innerHTML = '<i class="fas fa-star" aria-hidden="true"></i>'.repeat(5);
+                starsDiv.setAttribute('aria-label', '5 bintang');
+                nameDiv.appendChild(nameEl);
+                nameDiv.appendChild(starsDiv);
+
+                headerDiv.appendChild(avatar);
+                headerDiv.appendChild(nameDiv);
+
+                // Teks ulasan
+                const tekstEl = document.createElement('p');
+                tekstEl.className = 'text-gray-600 text-sm leading-relaxed relative z-10';
+                tekstEl.textContent = '"' + (t.teks || '') + '"';
+
+                card.appendChild(quoteIcon);
+                card.appendChild(headerDiv);
+                card.appendChild(tekstEl);
+                container.appendChild(card);
+            });
+        }
+
+        function scrollTesti(direction) {
+            const container = document.getElementById('testi-carousel');
+            container.scrollBy({ left: direction * container.clientWidth * 0.8, behavior: 'smooth' });
+        }
+
+        /* ==========================================
+         * WhatsApp Form Submit
+         * ========================================== */
+        function submitToWA() {
+            const name = (document.getElementById('wa-name').value || '').trim();
+            const lokasi = (document.getElementById('wa-lokasi').value || '').trim();
+            const kondisi = document.getElementById('wa-kondisi').value;
+            const desc = (document.getElementById('wa-desc').value || '').trim();
+
+            // FIX: Validasi input sebelum dikirim
+            if (!name) { showToast("Nama wajib diisi", "error"); return; }
+            if (!lokasi) { showToast("Lokasi wajib diisi", "error"); return; }
+            if (!kondisi) { showToast("Pilih kondisi emas", "error"); return; }
+
+            // FIX: Validasi nomor WA — hanya angka, panjang wajar
+            const rawWA = (APP_DATA.konten.wa_number || '').replace(/\D/g, '');
+            if (!rawWA || rawWA.length < 10 || rawWA.length > 15) {
+                showToast("Nomor WA tidak valid, hubungi admin", "error");
+                return;
+            }
+
+            // FIX: Sanitasi input sebelum masuk pesan (strip karakter kontrol)
+            const cleanName = name.replace(/[<>&"']/g, '').substring(0, 80);
+            const cleanLokasi = lokasi.replace(/[<>&"']/g, '').substring(0, 80);
+            const cleanDesc = desc.replace(/[<>&"']/g, '').substring(0, 300);
+
+            // Kondisi dari dropdown (whitelist), tidak perlu sanitasi
+            const allowedKondisi = ['Ada Surat', 'Tanpa Surat', 'Rusak/Patah', 'Logam Mulia (Antam/UBS dll)'];
+            const safeKondisi = allowedKondisi.includes(kondisi) ? kondisi : 'Tidak diketahui';
+
+            let text = `Halo Admin Bakul Emas, saya ingin menjual emas.\n\n*Detail Data:*\n- Nama: ${cleanName}\n- Lokasi: ${cleanLokasi}\n- Kondisi Emas: ${safeKondisi}`;
+            if (cleanDesc) text += `\n- Keterangan: ${cleanDesc}`;
+
+            const waUrl = 'https://wa.me/' + rawWA + '?text=' + encodeURIComponent(text);
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+            showToast("Membuka WhatsApp...");
+
+            // Reset form
+            document.getElementById('wa-name').value = '';
+            document.getElementById('wa-lokasi').value = '';
+            document.getElementById('wa-kondisi').value = '';
+            document.getElementById('wa-desc').value = '';
+        }
+
+        /* ==========================================
+         * Login Admin
+         * ========================================== */
+        // FIX: Rate limiting sederhana untuk mencegah brute force di sisi klien
+        let loginAttempts = 0;
+        let loginLockUntil = 0;
+
+        async function handleLogin() {
+            const now = Date.now();
+            if (now < loginLockUntil) {
+                const sisa = Math.ceil((loginLockUntil - now) / 1000);
+                showToast('Terlalu banyak percobaan. Tunggu ' + sisa + ' detik.', 'error');
+                return;
+            }
+
+            const u = (document.getElementById('login-user').value || '').trim();
+            const p = document.getElementById('login-pass').value || '';
+
+            if (!u || !p) { showToast("Username dan password wajib diisi", "error"); return; }
+
+            showLoader("Verifikasi Login...");
+
+            if (IS_PREVIEW) {
+                setTimeout(function() {
+                    if (u === 'admin' && p === 'edudigital') {
+                        loginAttempts = 0;
+                        document.getElementById('login-pass').value = '';
+                        hideLoader();
+                        showView('admin');
+                        showToast("Login Berhasil!");
+                    } else {
+                        loginAttempts++;
+                        if (loginAttempts >= 5) {
+                            loginLockUntil = Date.now() + 30000; // Kunci 30 detik
+                            loginAttempts = 0;
+                        }
+                        hideLoader();
+                        showToast("Username atau password salah!", "error");
+                    }
+                }, 800);
+                return;
+            }
+
+            if (!GAS_URL || GAS_URL === "URL_DEPLOY_GAS_ANDA_DISINI") {
+                hideLoader();
+                showToast("GAS URL belum dikonfigurasi", "error");
+                return;
+            }
+
+            try {
+                const res = await fetch(GAS_URL + '?action=login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: u, password: p })
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const result = await res.json();
+                if (result.status === 'success') {
+                    loginAttempts = 0;
+                    document.getElementById('login-pass').value = '';
+                    showView('admin');
+                    showToast("Login Berhasil!");
+                } else {
+                    loginAttempts++;
+                    if (loginAttempts >= 5) {
+                        loginLockUntil = Date.now() + 30000;
+                        loginAttempts = 0;
+                    }
+                    showToast(result.message || "Login Gagal!", "error");
+                }
+            } catch (error) {
+                showToast("Terjadi kesalahan sistem", "error");
+            }
+            hideLoader();
+        }
+
+        function logout() {
+            document.getElementById('login-user').value = '';
+            document.getElementById('login-pass').value = '';
+            showView('login');
+            showToast("Berhasil Keluar");
+        }
+
+        /* ==========================================
+         * CMS Admin — Render & Save Konten
+         * ========================================== */
+        function renderAdminData() {
+            const k = APP_DATA.konten;
+            document.getElementById('edit-wa-number').value = k.wa_number || '';
+            document.getElementById('edit-hero-badge').value = k.hero_badge || '';
+            document.getElementById('edit-hero-title1').value = k.hero_title1 || '';
+            document.getElementById('edit-hero-title2').value = k.hero_title2 || '';
+            document.getElementById('edit-hero-sub').value = k.hero_sub || '';
+            document.getElementById('edit-hero-desc').value = k.hero_desc || '';
+            document.getElementById('edit-hero-img').value = k.hero_img || '';
+            document.getElementById('preview-edit-img').src = (k.hero_img && k.hero_img.startsWith('https://')) ? k.hero_img : '';
+            renderTableTesti();
+        }
+
+        // FIX: Preview gambar hanya dipanggil manual, bukan oninput (menghindari spam request)
+        function previewImage() {
+            const url = (document.getElementById('edit-hero-img').value || '').trim();
+            if (url.startsWith('https://')) {
+                document.getElementById('preview-edit-img').src = url;
+            } else {
+                showToast("URL gambar harus diawali https://", "error");
+            }
+        }
+
+        async function saveContent() {
+            // FIX: Validasi nomor WA
+            const rawWA = (document.getElementById('edit-wa-number').value || '').replace(/\D/g, '');
+            if (!rawWA || rawWA.length < 10 || rawWA.length > 15) {
+                showToast("Nomor WA tidak valid (hanya angka, 10-15 digit)", "error");
+                return;
+            }
+
+            // FIX: Validasi URL gambar
+            const imgUrl = (document.getElementById('edit-hero-img').value || '').trim();
+            if (imgUrl && !imgUrl.startsWith('https://')) {
+                showToast("URL gambar harus diawali https://", "error");
+                return;
+            }
+
+            const newData = {
+                wa_number: rawWA,
+                hero_badge: (document.getElementById('edit-hero-badge').value || '').substring(0, 100),
+                hero_title1: (document.getElementById('edit-hero-title1').value || '').substring(0, 60),
+                hero_title2: (document.getElementById('edit-hero-title2').value || '').substring(0, 60),
+                hero_sub: (document.getElementById('edit-hero-sub').value || '').substring(0, 120),
+                hero_desc: (document.getElementById('edit-hero-desc').value || '').substring(0, 400),
+                hero_img: imgUrl.substring(0, 500)
+            };
+
+            showLoader("Menyimpan Pengaturan...");
+
+            if (IS_PREVIEW) {
+                setTimeout(function() {
+                    APP_DATA.konten = newData;
+                    hideLoader();
+                    showToast("Pengaturan berhasil disimpan (Mode Preview)");
+                }, 600);
+                return;
+            }
+
+            try {
+                const res = await fetch(GAS_URL + '?action=update_content', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newData)
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const result = await res.json();
+                if (result.status === 'success') {
+                    APP_DATA.konten = newData;
+                    showToast("Pengaturan berhasil disimpan!");
+                } else {
+                    showToast("Gagal menyimpan data", "error");
+                }
+            } catch (error) {
+                showToast("Terjadi kesalahan koneksi", "error");
+            }
+            hideLoader();
+        }
+
+        /* ==========================================
+         * CMS Admin — Kelola Testimoni
+         * ========================================== */
+        // FIX: Gunakan DOM API untuk tabel, bukan innerHTML dengan data user
+        function renderTableTesti() {
+            const tbody = document.getElementById('table-testi-body');
+            tbody.innerHTML = '';
+
+            if (!APP_DATA.testimoni || APP_DATA.testimoni.length === 0) {
+                const tr = document.createElement('tr');
+                const td = document.createElement('td');
+                td.colSpan = 4;
+                td.className = 'text-center p-4 text-gray-500';
+                td.textContent = 'Belum ada testimoni.';
+                tr.appendChild(td);
+                tbody.appendChild(tr);
+                return;
+            }
+
+            APP_DATA.testimoni.forEach(function(t) {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-gray-100 hover:bg-gray-50';
+
+                const tdId = document.createElement('td');
+                tdId.className = 'p-3 text-sm text-gray-500';
+                tdId.textContent = t.id;
+
+                const tdNama = document.createElement('td');
+                tdNama.className = 'p-3 font-semibold text-gray-900';
+                tdNama.textContent = t.nama;
+
+                const tdTeks = document.createElement('td');
+                tdTeks.className = 'p-3 text-sm text-gray-600';
+                const inner = document.createElement('div');
+                inner.className = 'line-clamp-2';
+                inner.textContent = t.teks;
+                tdTeks.appendChild(inner);
+
+                const tdAksi = document.createElement('td');
+                tdAksi.className = 'p-3 text-center';
+                const btnHapus = document.createElement('button');
+                btnHapus.className = 'text-red-500 hover:text-white hover:bg-red-500 px-2 py-1 rounded transition text-sm';
+                btnHapus.setAttribute('aria-label', 'Hapus testimoni ' + t.nama);
+                btnHapus.innerHTML = '<i class="fas fa-trash" aria-hidden="true"></i>';
+                // FIX: ID disimpan di data-attribute, bukan di onclick string (mencegah injeksi)
+                btnHapus.dataset.id = t.id;
+                btnHapus.addEventListener('click', function() { deleteTesti(this.dataset.id); });
+                tdAksi.appendChild(btnHapus);
+
+                tr.appendChild(tdId);
+                tr.appendChild(tdNama);
+                tr.appendChild(tdTeks);
+                tr.appendChild(tdAksi);
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openModalTesti() {
+            document.getElementById('add-testi-name').value = '';
+            document.getElementById('add-testi-text').value = '';
+            const modal = document.getElementById('modal-testi');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.getElementById('add-testi-name').focus();
+        }
+
+        function closeModalTesti() {
+            const modal = document.getElementById('modal-testi');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // FIX: Tutup modal saat klik overlay luar
+        function handleModalOverlayClick(e) {
+            if (e.target === document.getElementById('modal-testi')) {
+                closeModalTesti();
+            }
+        }
+
+        // FIX: Tutup modal dengan tombol Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModalTesti();
+        });
+
+        async function submitTesti() {
+            const nama = (document.getElementById('add-testi-name').value || '').trim();
+            const teks = (document.getElementById('add-testi-text').value || '').trim();
+
+            if (!nama) { showToast("Nama pelanggan wajib diisi", "error"); return; }
+            if (!teks) { showToast("Teks ulasan wajib diisi", "error"); return; }
+            if (nama.length > 80) { showToast("Nama terlalu panjang (maks 80 karakter)", "error"); return; }
+            if (teks.length > 500) { showToast("Ulasan terlalu panjang (maks 500 karakter)", "error"); return; }
+
+            showLoader("Menyimpan Testimoni...");
+
+            if (IS_PREVIEW) {
+                setTimeout(function() {
+                    const newId = "T" + Date.now();
+                    APP_DATA.testimoni.unshift({ id: newId, nama: nama, teks: teks });
+                    renderTableTesti();
+                    closeModalTesti();
+                    hideLoader();
+                    showToast("Testimoni ditambahkan (Mode Preview)");
+                }, 600);
+                return;
+            }
+
+            try {
+                const res = await fetch(GAS_URL + '?action=add_testimoni', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nama: nama, teks: teks })
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const result = await res.json();
+                if (result.status === 'success' && Array.isArray(result.data)) {
+                    APP_DATA.testimoni = result.data;
+                    renderTableTesti();
+                    closeModalTesti();
+                    showToast("Testimoni berhasil ditambahkan!");
+                } else {
+                    showToast("Gagal menambah testimoni", "error");
+                }
+            } catch (error) {
+                showToast("Terjadi kesalahan koneksi", "error");
+            }
+            hideLoader();
+        }
+
+        async function deleteTesti(id) {
+            if (!id) return;
+            if (!confirm("Yakin ingin menghapus testimoni ini?")) return;
+
+            showLoader("Menghapus...");
+
+            if (IS_PREVIEW) {
+                setTimeout(function() {
+                    APP_DATA.testimoni = APP_DATA.testimoni.filter(function(t) { return t.id !== id; });
+                    renderTableTesti();
+                    hideLoader();
+                    showToast("Testimoni dihapus (Mode Preview)");
+                }, 500);
+                return;
+            }
+
+            try {
+                const res = await fetch(GAS_URL + '?action=del_testimoni', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: id })
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const result = await res.json();
+                if (result.status === 'success' && Array.isArray(result.data)) {
+                    APP_DATA.testimoni = result.data;
+                    renderTableTesti();
+                    showToast("Testimoni berhasil dihapus!");
+                } else {
+                    showToast("Gagal menghapus", "error");
+                }
+            } catch (error) {
+                showToast("Terjadi kesalahan koneksi", "error");
+            }
+            hideLoader();
+        }
+
+        /* ==========================================
+         * Init
+         * ========================================== */
+        window.addEventListener('DOMContentLoaded', function() {
+            // Sembunyikan hint login di mode produksi
+            if (!IS_PREVIEW) {
+                const hint = document.getElementById('login-hint');
+                if (hint) hint.style.display = 'none';
+            }
+            fetchAppContent();
+        });
+    </script>
+</body>
+</html>

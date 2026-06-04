@@ -22,7 +22,7 @@
                             500: '#F59E0B',
                             600: '#D97706',
                         },
-                        gelap: '#111827' // background gelap polosan
+                        gelap: '#111827'
                     }
                 }
             }
@@ -45,11 +45,6 @@
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
     <div id="app-wrapper" class="fixed inset-0 w-full h-full bg-gray-50 z-[999999] overflow-y-auto">
-
-        <!-- Thumbnail Blogger -->
-        <div id="blogger-thumbnail" class="hidden">
-            <img src="https://placehold.co/800x600/F59E0B/111827?text=Bakul+Emas+Banyumas" alt="Thumbnail Bakul Emas">
-        </div>
 
         <!-- Global Loader -->
         <div id="global-loader" class="fixed inset-0 bg-gray-900 bg-opacity-80 z-[1000000] flex flex-col justify-center items-center hidden" role="status">
@@ -97,7 +92,7 @@
                 </div>
             </nav>
 
-            <!-- Hero Section (Dark Polos) -->
+            <!-- Hero Section -->
             <header class="bg-gelap-polos pt-12 pb-24 px-4 relative">
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
                     <div class="text-center md:text-left">
@@ -117,8 +112,6 @@
                                 <i class="fab fa-whatsapp text-2xl"></i> Cek Harga Sekarang
                             </button>
                         </div>
-                        
-                        <!-- Trust Factor Section -->
                         <div class="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6 mt-6">
                             <div>
                                 <h4 class="text-2xl md:text-3xl font-black text-yellow-400" id="lp-trust-transaksi">500+</h4>
@@ -173,7 +166,7 @@
                 </div>
             </section>
 
-            <!-- Testimoni Carousel (Meyakinkan) -->
+            <!-- Testimoni Carousel -->
             <section class="py-16 px-4 bg-gray-50 border-t border-gray-200">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-12">
@@ -185,12 +178,8 @@
                         <div id="testi-carousel" class="flex overflow-x-auto gap-6 snap-x snap-mandatory hide-scrollbar pb-8 pt-4">
                             <div class="min-w-full p-6 text-center text-gray-500">Memuat ulasan...</div>
                         </div>
-                        <button onclick="scrollTesti(-1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-900 hover:bg-yellow-400 transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="scrollTesti(1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-900 hover:bg-yellow-400 transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                        <button onclick="scrollTesti(-1)" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-900 hover:bg-yellow-400 transition z-10"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="scrollTesti(1)" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white w-12 h-12 rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-900 hover:bg-yellow-400 transition z-10"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </section>
@@ -203,18 +192,9 @@
                             <h3 class="text-3xl font-heading font-black mb-4 text-yellow-400">Jadikan Uang Sekarang!</h3>
                             <p class="text-gray-300 mb-8">Isi detail ringan, admin kami merespon dalam hitungan menit untuk memberikan penawaran harga terbaik hari ini.</p>
                             <div class="space-y-4">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-green-400"><i class="fab fa-whatsapp"></i></div>
-                                    <span class="font-medium">Admin Fast Respon</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-blue-400"><i class="fas fa-shield-alt"></i></div>
-                                    <span class="font-medium">Transaksi Dijamin Aman 100%</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-yellow-400"><i class="fas fa-motorcycle"></i></div>
-                                    <span class="font-medium" id="lp-form-area-text">Melayani Area Banyumas Raya</span>
-                                </div>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-green-400"><i class="fab fa-whatsapp"></i></div><span class="font-medium">Admin Fast Respon</span></div>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-blue-400"><i class="fas fa-shield-alt"></i></div><span class="font-medium">Transaksi Dijamin Aman 100%</span></div>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-yellow-400"><i class="fas fa-motorcycle"></i></div><span class="font-medium" id="lp-form-area-text">Melayani Area Banyumas Raya</span></div>
                             </div>
                         </div>
                         <div class="p-10 md:w-7/12">
@@ -250,10 +230,9 @@
                 </div>
             </section>
 
-            <!-- Footer Kaya Fitur -->
+            <!-- Footer -->
             <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800">
                 <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
-                    <!-- Brand -->
                     <div>
                         <h4 class="text-white font-heading font-black text-xl mb-4 flex items-center gap-2"><i class="fas fa-coins text-yellow-500"></i> BAKUL EMAS</h4>
                         <p class="text-sm leading-relaxed mb-6">Mitra terpercaya Anda untuk jual beli emas segala kondisi. Layanan jujur, timbangan akurat, dan harga bersaing.</p>
@@ -263,24 +242,14 @@
                             <a id="lp-footer-wa" href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-green-500 transition"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
-                    
-                    <!-- Kontak -->
                     <div>
                         <h4 class="text-white font-bold text-lg mb-6 border-b border-gray-700 pb-2 inline-block">Lokasi & Waktu</h4>
                         <ul class="space-y-4 text-sm">
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-map-marker-alt mt-1 text-yellow-500"></i>
-                                <span id="lp-footer-alamat">Alamat akan dimuat...</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-clock mt-1 text-yellow-500"></i>
-                                <span id="lp-footer-jam">Jam operasional dimuat...</span>
-                            </li>
+                            <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt mt-1 text-yellow-500"></i><span id="lp-footer-alamat">Alamat akan dimuat...</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-clock mt-1 text-yellow-500"></i><span id="lp-footer-jam">Jam operasional dimuat...</span></li>
                         </ul>
                         <a id="lp-footer-maps" href="#" target="_blank" class="inline-block mt-4 text-yellow-500 hover:text-yellow-400 text-sm font-bold bg-gray-800 px-4 py-2 rounded-lg transition"><i class="fas fa-map-marked-alt mr-1"></i> Buka Google Maps</a>
                     </div>
-
-                    <!-- Area Layanan -->
                     <div>
                         <h4 class="text-white font-bold text-lg mb-6 border-b border-gray-700 pb-2 inline-block">Area Layanan COD</h4>
                         <p class="text-sm leading-relaxed" id="lp-footer-area">Area layanan akan dimuat...</p>
@@ -289,8 +258,6 @@
                             <span class="bg-gray-800 text-xs px-2 py-1 rounded border border-gray-700">Langsung Cair</span>
                         </div>
                     </div>
-
-                    <!-- Admin -->
                     <div>
                         <h4 class="text-white font-bold text-lg mb-6 border-b border-gray-700 pb-2 inline-block">Manajemen</h4>
                         <p class="text-sm mb-4">Area khusus pengelola website.</p>
@@ -331,9 +298,6 @@
                         <button type="button" onclick="handleLogin()" class="w-full bg-gray-900 hover:bg-gray-800 text-yellow-400 font-bold py-3 rounded-xl transition shadow-lg flex justify-center items-center gap-2">
                             <i class="fas fa-sign-in-alt"></i> Masuk Dashboard
                         </button>
-                    </div>
-                    <div class="mt-6 text-center text-xs text-gray-500" id="login-hint">
-                        Hint Preview: admin / edudigital
                     </div>
                 </div>
             </div>
@@ -377,38 +341,34 @@
                     <div id="tab-konten" class="block bg-white rounded-2xl shadow-sm border border-gray-200 p-6 fade-in">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-4">Pengaturan Konten Utama</h2>
                         <div class="space-y-6">
-                            
-                            <!-- Nomor WA & Urgency -->
                             <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-4">
                                 <h3 class="font-bold text-gray-700 flex items-center gap-2"><i class="fab fa-whatsapp text-green-500"></i> Setup Kontak & Urgency</h3>
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-700 mb-1">Nomor WhatsApp Admin</label>
-                                    <input type="tel" id="edit-wa-number" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none" placeholder="628123456789">
+                                    <input type="tel" id="edit-wa_number" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none" placeholder="628123456789">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-700 mb-1">Banner Urgency (Paling Atas)</label>
-                                    <input type="text" id="edit-urgency-text" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none" placeholder="Promo Hari Ini...">
+                                    <input type="text" id="edit-urgency_text" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 outline-none" placeholder="Promo Hari Ini...">
                                 </div>
                             </div>
 
-                            <!-- Hero Copywriting -->
                             <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-4">
                                 <h3 class="font-bold text-gray-700 flex items-center gap-2"><i class="fas fa-heading text-blue-500"></i> Copywriting Hero</h3>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Teks Badge Kecil</label><input type="text" id="edit-hero-badge" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Headline Utama (Baris 1)</label><input type="text" id="edit-hero-title1" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Headline Utama (Warna Emas)</label><input type="text" id="edit-hero-title2" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Sub Headline</label><input type="text" id="edit-hero-sub" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Deskripsi Bawah</label><textarea id="edit-hero-desc" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></textarea></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">URL Gambar Ilustrasi Emas</label><input type="url" id="edit-hero-img" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Teks Badge Kecil</label><input type="text" id="edit-hero_badge" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Headline Utama (Baris 1)</label><input type="text" id="edit-hero_title1" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Headline Utama (Warna Emas)</label><input type="text" id="edit-hero_title2" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Sub Headline</label><input type="text" id="edit-hero_sub" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Deskripsi Bawah</label><textarea id="edit-hero_desc" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></textarea></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">URL Gambar Ilustrasi Emas</label><input type="url" id="edit-hero_img" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
                             </div>
 
-                            <!-- Data Trust -->
                             <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-4">
                                 <h3 class="font-bold text-gray-700 flex items-center gap-2"><i class="fas fa-star text-yellow-500"></i> Angka Kepercayaan (Trust Factor)</h3>
                                 <div class="grid grid-cols-3 gap-4">
-                                    <div><label class="block text-sm font-semibold text-gray-700 mb-1">Jumlah Transaksi</label><input type="text" id="edit-trust-transaksi" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none" placeholder="500+"></div>
-                                    <div><label class="block text-sm font-semibold text-gray-700 mb-1">Rating</label><input type="text" id="edit-trust-rating" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none" placeholder="4.9"></div>
-                                    <div><label class="block text-sm font-semibold text-gray-700 mb-1">Tahun Berdiri</label><input type="text" id="edit-trust-tahun" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none" placeholder="2021"></div>
+                                    <div><label class="block text-sm font-semibold text-gray-700 mb-1">Jumlah Transaksi</label><input type="text" id="edit-trust_transaksi" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none" placeholder="500+"></div>
+                                    <div><label class="block text-sm font-semibold text-gray-700 mb-1">Rating</label><input type="text" id="edit-trust_rating" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none" placeholder="4.9"></div>
+                                    <div><label class="block text-sm font-semibold text-gray-700 mb-1">Tahun Berdiri</label><input type="text" id="edit-trust_tahun" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none" placeholder="2021"></div>
                                 </div>
                             </div>
 
@@ -422,18 +382,17 @@
                     <div id="tab-footer" class="hidden bg-white rounded-2xl shadow-sm border border-gray-200 p-6 fade-in">
                         <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b pb-4">Pengaturan Footer & Lokasi</h2>
                         <div class="space-y-6">
-                            
                             <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-4">
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Alamat Lengkap</label><input type="text" id="edit-footer-alamat" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Jam Operasional</label><input type="text" id="edit-footer-jam" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Area Layanan (Koma dipisah)</label><textarea id="edit-footer-area" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></textarea></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Alamat Lengkap</label><input type="text" id="edit-footer_alamat" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Jam Operasional</label><input type="text" id="edit-footer_jam" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Area Layanan (Koma dipisah)</label><textarea id="edit-footer_area" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></textarea></div>
                             </div>
 
                             <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 space-y-4">
                                 <h3 class="font-bold text-gray-700 flex items-center gap-2"><i class="fas fa-link text-purple-500"></i> Tautan Sosial Media</h3>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Link Instagram</label><input type="url" id="edit-footer-ig" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Link TikTok</label><input type="url" id="edit-footer-tiktok" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
-                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Link Google Maps</label><input type="url" id="edit-footer-maps" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Link Instagram</label><input type="url" id="edit-footer_ig" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Link TikTok</label><input type="url" id="edit-footer_tiktok" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
+                                <div><label class="block text-sm font-semibold text-gray-700 mb-1">Link Google Maps</label><input type="url" id="edit-footer_maps" class="w-full px-4 py-2 rounded-lg border border-gray-300 outline-none"></div>
                             </div>
 
                             <button type="button" onclick="saveContent('footer')" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-xl transition shadow-lg w-full md:w-auto">
@@ -468,7 +427,7 @@
             </div>
         </div>
 
-        <!-- Modal Tambah Testimoni (Dengan Avatar & Lokasi) -->
+        <!-- Modal Tambah Testimoni -->
         <div id="modal-testi" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-[1000002] hidden justify-center items-center px-4" onclick="handleModalOverlayClick(event)">
             <div id="modal-testi-content" class="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden fade-in" onclick="event.stopPropagation()">
                 <div class="bg-gray-900 px-6 py-4 flex justify-between items-center text-white">
@@ -505,21 +464,48 @@
     </div>
 
     <script>
-        // KONFIGURASI APLIKASI
-        // UBAH IS_PREVIEW KE false JIKA AKAN DI-DEPLOY KE BLOGGER
-        const IS_PREVIEW = true; 
-        const GAS_URL = "URL_DEPLOY_GAS_ANDA_DISINI";
+        // ================================================================
+        // KONFIGURASI SUPABASE — ISI DENGAN DATA PROYEK ANDA
+        // ================================================================
+        const SUPABASE_URL  = "https://ucgqqwzoxxnwraqxszcs.supabase.co";       // contoh: https://xxxx.supabase.co
+        const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVjZ3Fxd3pveHhud3JhcXhzemNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1NjcwNjQsImV4cCI6MjA5NjE0MzA2NH0.Eoxg2Z2oF6rsuet4-UhIMBJ2rh2HSbMRPCQyz73xmBw";  // dari Settings > API > anon public
 
-        // State Global (Dengan Data Trust & Footer Lengkap)
+        // ================================================================
+        // Helper: Supabase REST API calls
+        // ================================================================
+        async function sb(path, method = 'GET', body = null, extra = {}) {
+            const opts = {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': SUPABASE_ANON,
+                    'Authorization': 'Bearer ' + SUPABASE_ANON,
+                    'Prefer': 'return=representation',
+                    ...extra
+                }
+            };
+            if (body) opts.body = JSON.stringify(body);
+            const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, opts);
+            if (!res.ok) {
+                const err = await res.text();
+                throw new Error(err);
+            }
+            const text = await res.text();
+            return text ? JSON.parse(text) : null;
+        }
+
+        // ================================================================
+        // State Global
+        // ================================================================
         let APP_DATA = {
             konten: {
                 wa_number: "6281234567890",
-                urgency_text: "🔥 Promo Hari Ini: Harga Mengikuti Market Realtime & Free COD Area Purwokerto Sekitarnya!",
+                urgency_text: "🔥 Promo Hari Ini: Harga Mengikuti Market Realtime & Free COD Area Purwokerto!",
                 hero_badge: "🔥 Jual Emas Tanpa Ribet",
                 hero_title1: "Emas Rusak? Tanpa Surat?",
                 hero_title2: "Tetap Kami Beli Mahal",
                 hero_sub: "Harga Tinggi & Bisa COD ke Rumah!",
-                hero_desc: "Daripada dijual ke toko biasa dengan potongan besar, mending ke Bakul Emas. Kami berani beli lebih tinggi mengikuti harga pasar terkini!",
+                hero_desc: "Daripada dijual ke toko biasa dengan potongan besar, mending ke Bakul Emas.",
                 hero_img: "https://placehold.co/600x600/FBBF24/111827?text=Ilustrasi+Emas",
                 trust_transaksi: "500+",
                 trust_rating: "4.9",
@@ -531,32 +517,41 @@
                 footer_maps: "https://maps.app.goo.gl/",
                 footer_area: "Purwokerto, Banyumas, Sokaraja, Purbalingga, Cilacap, dan Ajibarang"
             },
-            testimoni: []
+            testimoni: [],
+            isLoggedIn: false
         };
 
-        const DUMMY_TESTI = [
-            { id: "T01", nama: "Ibu Linda", lokasi: "Purwokerto Selatan", avatar: "https://i.pravatar.cc/150?img=5", teks: "Sangat membantu! Emas Antam saya dibeli tanpa potongan besar. Adminnya responsif dan mau datang langsung ke rumah." },
-            { id: "T02", nama: "Mas Bayu", lokasi: "Sokaraja", avatar: "https://i.pravatar.cc/150?img=11", teks: "Perhiasan patah dan suratnya hilang tetep laku mahal disini. Pengerjaannya transparan ditimbang di depan mata." },
-            { id: "T03", nama: "Mbak Rini", lokasi: "Baturraden", avatar: "", teks: "Recommended banget buat yang mau jual emas cepat dan gak mau ribet panas-panasan ke toko. Cair langsung transfer." }
-        ];
-
+        // ================================================================
         // Utility
+        // ================================================================
         function safeSetText(id, value) { const el = document.getElementById(id); if (el) el.textContent = value || ''; }
-        function showLoader() { document.getElementById('global-loader').classList.remove('hidden'); }
+        function showLoader(msg) { document.getElementById('loader-text').textContent = msg || 'Memproses...'; document.getElementById('global-loader').classList.remove('hidden'); }
         function hideLoader() { document.getElementById('global-loader').classList.add('hidden'); }
         let toastTimeout;
-        function showToast(message) {
+        function showToast(message, isError = false) {
             clearTimeout(toastTimeout);
             safeSetText('toast-text', message);
+            const msg = document.getElementById('toast-message');
+            msg.classList.toggle('border-red-500', isError);
+            msg.classList.toggle('border-yellow-500', !isError);
             document.getElementById('toast-container').classList.remove('hidden');
             toastTimeout = setTimeout(hideToast, 4000);
         }
         function hideToast() { document.getElementById('toast-container').classList.add('hidden'); }
 
+        // ================================================================
         // Navigasi
+        // ================================================================
         function showView(viewId) {
-            ['landing', 'login', 'admin'].forEach(v => document.getElementById('view-' + v).classList.add('hidden'));
-            document.getElementById('view-' + viewId).classList.remove('hidden');
+            ['landing', 'login', 'admin'].forEach(v => {
+                const el = document.getElementById('view-' + v);
+                el.classList.add('hidden');
+                el.classList.remove('block', 'flex');
+            });
+            const target = document.getElementById('view-' + viewId);
+            target.classList.remove('hidden');
+            if (viewId === 'admin' || viewId === 'login') target.classList.add('flex');
+            else target.classList.add('block');
             window.scrollTo(0, 0);
             if (viewId === 'admin') renderAdminData();
             if (viewId === 'landing') renderLandingData();
@@ -570,55 +565,57 @@
             document.getElementById('btn-' + tabId).className = baseClass + " bg-yellow-100 text-yellow-700";
         }
 
-        function scrollToForm() {
-            document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
-        }
+        function scrollToForm() { document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' }); }
 
-        // Fetch Data
+        // ================================================================
+        // FETCH DATA DARI SUPABASE
+        // ================================================================
         async function fetchAppContent() {
-            showLoader();
-            if (IS_PREVIEW) {
-                setTimeout(() => { APP_DATA.testimoni = DUMMY_TESTI.slice(); renderLandingData(); hideLoader(); }, 600);
-                return;
-            }
+            showLoader('Memuat konten...');
             try {
-                const res = await fetch(GAS_URL + '?action=get_data');
-                const result = await res.json();
-                if (result.status === 'success') {
-                    if (result.data.konten) APP_DATA.konten = Object.assign(APP_DATA.konten, result.data.konten);
-                    if (result.data.testimoni) APP_DATA.testimoni = result.data.testimoni;
+                // Ambil konten (baris id=1)
+                const kontenData = await sb('konten?id=eq.1&select=*');
+                if (kontenData && kontenData.length > 0) {
+                    APP_DATA.konten = { ...APP_DATA.konten, ...kontenData[0] };
                 }
-            } catch (e) { console.error(e); showToast("Gagal memuat data live."); }
+
+                // Ambil testimoni
+                const testiData = await sb('testimoni?select=*&order=created_at.desc');
+                if (testiData) APP_DATA.testimoni = testiData;
+
+            } catch (e) {
+                console.error(e);
+                showToast("Gagal memuat data. Cek konfigurasi Supabase.", true);
+            }
             renderLandingData();
             hideLoader();
         }
 
-        // Render Public
+        // ================================================================
+        // RENDER LANDING PAGE
+        // ================================================================
         function renderLandingData() {
             const k = APP_DATA.konten;
-            
-            // Hero & Urgency
             safeSetText('lp-urgency-text', k.urgency_text);
             safeSetText('lp-hook-badge', k.hero_badge);
             safeSetText('lp-hero-desc', k.hero_desc);
-            
+
             const titleEl = document.getElementById('lp-hero-title');
             if (titleEl) {
-                titleEl.innerHTML = `${k.hero_title1}<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">${k.hero_title2}</span><br><span class="text-2xl md:text-3xl font-bold mt-2 block text-gray-300">${k.hero_sub}</span>`;
+                titleEl.innerHTML = `${k.hero_title1}<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">${k.hero_title2}</span><br>
+                    <span class="text-2xl md:text-3xl font-bold mt-2 block text-gray-300">${k.hero_sub}</span>`;
             }
             if (k.hero_img && k.hero_img.startsWith('http')) document.getElementById('lp-hero-img').src = k.hero_img;
 
-            // Trust Factor
             safeSetText('lp-trust-transaksi', k.trust_transaksi);
             safeSetText('lp-trust-rating', k.trust_rating);
             safeSetText('lp-trust-tahun', k.trust_tahun);
-
-            // Footer & Form Info
             safeSetText('lp-footer-alamat', k.footer_alamat);
             safeSetText('lp-footer-jam', k.footer_jam);
             safeSetText('lp-footer-area', k.footer_area);
-            safeSetText('lp-form-area-text', "Melayani Area: " + (k.footer_area.split(',')[0] || "Banyumas"));
-            
+            safeSetText('lp-form-area-text', "Melayani Area: " + (k.footer_area ? k.footer_area.split(',')[0] : "Banyumas"));
+
             document.getElementById('lp-footer-ig').href = k.footer_ig || "#";
             document.getElementById('lp-footer-tiktok').href = k.footer_tiktok || "#";
             document.getElementById('lp-footer-maps').href = k.footer_maps || "#";
@@ -634,9 +631,9 @@
                 container.innerHTML = '<div class="min-w-full p-6 text-center text-gray-500">Belum ada testimoni.</div>'; return;
             }
             APP_DATA.testimoni.forEach(t => {
-                const imgTag = t.avatar ? `<img src="${t.avatar}" alt="Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0">` 
-                                        : `<div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl uppercase flex-shrink-0">${t.nama.charAt(0)}</div>`;
-                
+                const imgTag = t.avatar
+                    ? `<img src="${t.avatar}" alt="Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0">`
+                    : `<div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl uppercase flex-shrink-0">${t.nama.charAt(0)}</div>`;
                 const card = document.createElement('div');
                 card.className = 'min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-white p-6 rounded-2xl border border-gray-100 shadow-md relative';
                 card.innerHTML = `
@@ -654,116 +651,126 @@
                 container.appendChild(card);
             });
         }
+
         function scrollTesti(d) { document.getElementById('testi-carousel').scrollBy({ left: d * 300, behavior: 'smooth' }); }
 
-        // Kirim WA
+        // ================================================================
+        // KIRIM KE WHATSAPP
+        // ================================================================
         function submitToWA() {
             const nama = document.getElementById('wa-name').value.trim();
             const lokasi = document.getElementById('wa-lokasi').value.trim();
             const kondisi = document.getElementById('wa-kondisi').value;
             const desc = document.getElementById('wa-desc').value.trim();
-
-            if(!nama || !lokasi || !kondisi) return showToast("Harap isi Nama, Alamat, dan Kondisi Emas!");
-            
+            if (!nama || !lokasi || !kondisi) return showToast("Harap isi Nama, Alamat, dan Kondisi Emas!");
             let text = `Halo Admin Bakul Emas, saya ingin cek harga / jual emas.\n\n*Data Pengirim:*\n- Nama: ${nama}\n- Alamat/Lokasi: ${lokasi}\n- Kondisi: ${kondisi}`;
-            if(desc) text += `\n- Keterangan: ${desc}`;
-            
+            if (desc) text += `\n- Keterangan: ${desc}`;
             window.open('https://wa.me/' + APP_DATA.konten.wa_number + '?text=' + encodeURIComponent(text), '_blank');
         }
 
-        // Login Logic
+        // ================================================================
+        // LOGIN (Validasi dari tabel "admin_users" di Supabase)
+        // ================================================================
         async function handleLogin() {
             const u = document.getElementById('login-user').value.trim();
             const p = document.getElementById('login-pass').value;
-            if(!u || !p) return;
-            showLoader();
-
-            if(IS_PREVIEW) {
-                setTimeout(() => {
-                    if(u === 'admin' && p === 'edudigital') {
-                        document.getElementById('login-pass').value = '';
-                        showView('admin'); showToast("Login Berhasil");
-                    } else showToast("Login Gagal");
-                    hideLoader();
-                }, 800);
-                return;
-            }
-
+            if (!u || !p) return showToast("Username dan password wajib diisi!");
+            showLoader('Memverifikasi...');
             try {
-                const res = await fetch(GAS_URL + '?action=login', {
-                    method: 'POST', body: JSON.stringify({username: u, password: p})
-                });
-                const result = await res.json();
-                if(result.status === 'success') { document.getElementById('login-pass').value = ''; showView('admin'); } 
-                else showToast(result.message);
-            } catch(e) { showToast("Error koneksi"); }
+                // Cek username & password di tabel admin_users
+                // Password disimpan sebagai hash SHA-256 di Supabase
+                const hash = await sha256(p);
+                const result = await sb(`admin_users?username=eq.${encodeURIComponent(u)}&password_hash=eq.${hash}&select=id`);
+                if (result && result.length > 0) {
+                    APP_DATA.isLoggedIn = true;
+                    document.getElementById('login-pass').value = '';
+                    showView('admin');
+                    showToast("Login Berhasil!");
+                } else {
+                    showToast("Username atau password salah!", true);
+                }
+            } catch (e) {
+                console.error(e);
+                showToast("Gagal login. Cek koneksi atau konfigurasi.", true);
+            }
             hideLoader();
         }
-        function logout() { showView('login'); showToast("Berhasil Keluar"); }
 
-        // Render Admin Data
+        function logout() {
+            APP_DATA.isLoggedIn = false;
+            showView('landing');
+            showToast("Berhasil Keluar");
+        }
+
+        // SHA-256 helper (native Web Crypto API)
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // ================================================================
+        // RENDER ADMIN
+        // ================================================================
         function renderAdminData() {
+            if (!APP_DATA.isLoggedIn) { showView('login'); return; }
             const k = APP_DATA.konten;
-            // Tab Konten
-            ['wa_number','urgency_text','hero_badge','hero_title1','hero_title2','hero_sub','hero_desc','hero_img','trust_transaksi','trust_rating','trust_tahun'].forEach(id => {
-                const el = document.getElementById('edit-' + id.replace('_','-')); // handle mismatch ids loosely if exact
-                if(document.getElementById('edit-' + id)) document.getElementById('edit-' + id).value = k[id] || '';
-            });
-            // Tab Footer
-            ['footer_alamat','footer_jam','footer_area','footer_ig','footer_tiktok','footer_maps'].forEach(id => {
-                if(document.getElementById('edit-' + id)) document.getElementById('edit-' + id).value = k[id] || '';
+            const fields = ['wa_number','urgency_text','hero_badge','hero_title1','hero_title2','hero_sub','hero_desc','hero_img',
+                            'trust_transaksi','trust_rating','trust_tahun','footer_alamat','footer_jam','footer_area',
+                            'footer_ig','footer_tiktok','footer_maps'];
+            fields.forEach(id => {
+                const el = document.getElementById('edit-' + id);
+                if (el) el.value = k[id] || '';
             });
             renderTableTesti();
         }
 
+        // ================================================================
+        // SAVE CONTENT KE SUPABASE
+        // ================================================================
         async function saveContent(type) {
-            showLoader();
-            const newData = { ...APP_DATA.konten };
-            
-            if(type === 'utama') {
-                newData.wa_number = document.getElementById('edit-wa_number').value;
-                newData.urgency_text = document.getElementById('edit-urgency_text').value;
-                newData.hero_badge = document.getElementById('edit-hero_badge').value;
-                newData.hero_title1 = document.getElementById('edit-hero_title1').value;
-                newData.hero_title2 = document.getElementById('edit-hero_title2').value;
-                newData.hero_sub = document.getElementById('edit-hero_sub').value;
-                newData.hero_desc = document.getElementById('edit-hero_desc').value;
-                newData.hero_img = document.getElementById('edit-hero_img').value;
-                newData.trust_transaksi = document.getElementById('edit-trust_transaksi').value;
-                newData.trust_rating = document.getElementById('edit-trust_rating').value;
-                newData.trust_tahun = document.getElementById('edit-trust_tahun').value;
-            } else if(type === 'footer') {
-                newData.footer_alamat = document.getElementById('edit-footer_alamat').value;
-                newData.footer_jam = document.getElementById('edit-footer_jam').value;
-                newData.footer_area = document.getElementById('edit-footer_area').value;
-                newData.footer_ig = document.getElementById('edit-footer_ig').value;
-                newData.footer_tiktok = document.getElementById('edit-footer_tiktok').value;
-                newData.footer_maps = document.getElementById('edit-footer_maps').value;
-            }
+            if (!APP_DATA.isLoggedIn) return showToast("Sesi habis, login ulang.", true);
+            showLoader('Menyimpan...');
 
-            if(IS_PREVIEW) {
-                setTimeout(() => { APP_DATA.konten = newData; hideLoader(); showToast("Disimpan (Preview)"); }, 600); return;
-            }
+            const fields_utama = ['wa_number','urgency_text','hero_badge','hero_title1','hero_title2','hero_sub','hero_desc','hero_img','trust_transaksi','trust_rating','trust_tahun'];
+            const fields_footer = ['footer_alamat','footer_jam','footer_area','footer_ig','footer_tiktok','footer_maps'];
+            const fields = type === 'utama' ? fields_utama : fields_footer;
+
+            const patch = {};
+            fields.forEach(id => {
+                const el = document.getElementById('edit-' + id);
+                if (el) patch[id] = el.value;
+            });
 
             try {
-                const res = await fetch(GAS_URL + '?action=update_content', { method: 'POST', body: JSON.stringify(newData) });
-                const result = await res.json();
-                if(result.status === 'success') { APP_DATA.konten = newData; showToast("Berhasil Disimpan!"); }
-            } catch(e) { showToast("Gagal menyimpan"); }
+                // UPSERT ke baris id=1
+                await sb('konten?id=eq.1', 'PATCH', patch, { 'Prefer': 'return=minimal' });
+                APP_DATA.konten = { ...APP_DATA.konten, ...patch };
+                showToast("Berhasil Disimpan!");
+            } catch (e) {
+                console.error(e);
+                showToast("Gagal menyimpan. Cek RLS policy Supabase.", true);
+            }
             hideLoader();
         }
 
-        // Kelola Testimoni Admin
+        // ================================================================
+        // KELOLA TESTIMONI
+        // ================================================================
         function renderTableTesti() {
-            const tb = document.getElementById('table-testi-body'); tb.innerHTML = '';
-            if(APP_DATA.testimoni.length === 0) return tb.innerHTML = '<tr><td colspan="3" class="text-center p-4">Kosong</td></tr>';
-            
+            const tb = document.getElementById('table-testi-body');
+            tb.innerHTML = '';
+            if (APP_DATA.testimoni.length === 0) {
+                tb.innerHTML = '<tr><td colspan="3" class="text-center p-4 text-gray-500">Belum ada testimoni.</td></tr>'; return;
+            }
             APP_DATA.testimoni.forEach(t => {
-                const tr = document.createElement('tr'); tr.className = 'border-b';
+                const tr = document.createElement('tr');
+                tr.className = 'border-b hover:bg-gray-50';
                 tr.innerHTML = `
-                    <td class="p-3"><div class="font-bold">${t.nama}</div><div class="text-xs text-gray-500">${t.lokasi}</div></td>
+                    <td class="p-3"><div class="font-bold">${t.nama}</div><div class="text-xs text-gray-500">${t.lokasi || '-'}</div></td>
                     <td class="p-3 text-sm line-clamp-2">${t.teks}</td>
-                    <td class="p-3 text-center"><button onclick="deleteTesti('${t.id}')" class="text-red-500 hover:bg-red-50 px-2 py-1 rounded"><i class="fas fa-trash"></i></button></td>
+                    <td class="p-3 text-center"><button onclick="deleteTesti('${t.id}')" class="text-red-500 hover:bg-red-50 px-2 py-1 rounded transition"><i class="fas fa-trash"></i></button></td>
                 `;
                 tb.appendChild(tr);
             });
@@ -771,58 +778,60 @@
 
         function openModalTesti() {
             ['name','lokasi','avatar','text'].forEach(i => document.getElementById('add-testi-' + i).value = '');
-            document.getElementById('modal-testi').classList.remove('hidden'); document.getElementById('modal-testi').classList.add('flex');
+            document.getElementById('modal-testi').classList.remove('hidden');
+            document.getElementById('modal-testi').classList.add('flex');
         }
-        function closeModalTesti() { document.getElementById('modal-testi').classList.add('hidden'); document.getElementById('modal-testi').classList.remove('flex'); }
-        function handleModalOverlayClick(e) { if(e.target.id === 'modal-testi') closeModalTesti(); }
+        function closeModalTesti() {
+            document.getElementById('modal-testi').classList.add('hidden');
+            document.getElementById('modal-testi').classList.remove('flex');
+        }
+        function handleModalOverlayClick(e) { if (e.target.id === 'modal-testi') closeModalTesti(); }
 
         async function submitTesti() {
-            const nama = document.getElementById('add-testi-name').value.trim();
+            if (!APP_DATA.isLoggedIn) return showToast("Sesi habis, login ulang.", true);
+            const nama  = document.getElementById('add-testi-name').value.trim();
             const lokasi = document.getElementById('add-testi-lokasi').value.trim();
             const avatar = document.getElementById('add-testi-avatar').value.trim();
-            const teks = document.getElementById('add-testi-text').value.trim();
-
-            if(!nama || !teks) return showToast("Nama dan Teks wajib diisi!");
-            showLoader();
-
-            const data = { nama, lokasi, avatar, teks };
-
-            if(IS_PREVIEW) {
-                setTimeout(() => {
-                    APP_DATA.testimoni.unshift({ id: "T"+Date.now(), ...data });
-                    renderTableTesti(); closeModalTesti(); hideLoader(); showToast("Ditambahkan (Preview)");
-                }, 600); return;
-            }
-
+            const teks  = document.getElementById('add-testi-text').value.trim();
+            if (!nama || !teks) return showToast("Nama dan Teks wajib diisi!");
+            showLoader('Menyimpan testimoni...');
             try {
-                const res = await fetch(GAS_URL + '?action=add_testimoni', { method: 'POST', body: JSON.stringify(data) });
-                const result = await res.json();
-                if(result.status === 'success') { APP_DATA.testimoni = result.data; renderTableTesti(); closeModalTesti(); showToast("Sukses ditambahkan"); }
-            } catch(e) { showToast("Gagal menambah"); }
+                const result = await sb('testimoni', 'POST', { nama, lokasi, avatar, teks });
+                if (result && result.length > 0) {
+                    APP_DATA.testimoni.unshift(result[0]);
+                    renderTableTesti();
+                    renderTestiCarousel();
+                    closeModalTesti();
+                    showToast("Testimoni berhasil ditambahkan!");
+                }
+            } catch (e) {
+                console.error(e);
+                showToast("Gagal menambah testimoni.", true);
+            }
             hideLoader();
         }
 
         async function deleteTesti(id) {
-            if(!confirm("Hapus testimoni ini?")) return;
-            showLoader();
-            if(IS_PREVIEW) {
-                setTimeout(() => {
-                    APP_DATA.testimoni = APP_DATA.testimoni.filter(t => t.id !== id);
-                    renderTableTesti(); hideLoader(); showToast("Dihapus (Preview)");
-                }, 500); return;
-            }
+            if (!APP_DATA.isLoggedIn) return showToast("Sesi habis, login ulang.", true);
+            if (!confirm("Hapus testimoni ini?")) return;
+            showLoader('Menghapus...');
             try {
-                const res = await fetch(GAS_URL + '?action=del_testimoni', { method: 'POST', body: JSON.stringify({id}) });
-                const result = await res.json();
-                if(result.status === 'success') { APP_DATA.testimoni = result.data; renderTableTesti(); showToast("Sukses dihapus"); }
-            } catch(e) { showToast("Gagal menghapus"); }
+                await sb(`testimoni?id=eq.${id}`, 'DELETE', null, { 'Prefer': 'return=minimal' });
+                APP_DATA.testimoni = APP_DATA.testimoni.filter(t => t.id !== id && String(t.id) !== String(id));
+                renderTableTesti();
+                renderTestiCarousel();
+                showToast("Testimoni dihapus.");
+            } catch (e) {
+                console.error(e);
+                showToast("Gagal menghapus testimoni.", true);
+            }
             hideLoader();
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            if(!IS_PREVIEW) { const h = document.getElementById('login-hint'); if(h) h.style.display = 'none'; }
-            fetchAppContent();
-        });
+        // ================================================================
+        // INIT
+        // ================================================================
+        window.addEventListener('DOMContentLoaded', fetchAppContent);
     </script>
 </body>
 </html>

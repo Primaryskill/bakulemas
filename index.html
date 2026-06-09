@@ -67,8 +67,8 @@
             <div class="bg-yellow-500 text-gray-900 py-2 px-4 text-center text-xs md:text-sm font-bold shadow-md relative z-[60]">
                 <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
                     <i class="fas fa-fire animate-pulse text-red-600"></i>
-                    <span id="lp-urgency-text" class="marquee-container w-full sm:w-auto overflow-hidden sm:overflow-visible">
-                         <span class="inline-block sm:inline">Promo Hari Ini: Harga Mengikuti Market Realtime & Free COD Area Purwokerto!</span>
+                    <span id="lp-urgency-text" class="marquee-container w-full sm:w-auto overflow-hidden">
+                         <span id="lp-urgency-inner" class="marquee-content">Promo Hari Ini: Harga Mengikuti Market Realtime & Free COD Area Purwokerto!</span>
                     </span>
                     <i class="fas fa-fire animate-pulse text-red-600 hidden sm:inline"></i>
                 </div>
@@ -596,7 +596,7 @@
         // ================================================================
         function renderLandingData() {
             const k = APP_DATA.konten;
-            safeSetText('lp-urgency-text', k.urgency_text);
+            safeSetText('lp-urgency-inner', k.urgency_text);
             safeSetText('lp-hook-badge', k.hero_badge);
             safeSetText('lp-hero-desc', k.hero_desc);
 
@@ -614,7 +614,7 @@
             safeSetText('lp-footer-alamat', k.footer_alamat);
             safeSetText('lp-footer-jam', k.footer_jam);
             safeSetText('lp-footer-area', k.footer_area);
-            safeSetText('lp-form-area-text', "Melayani Area: " + (k.footer_area ? k.footer_area.split(',')[0] : "Purwokerto dan seBanyumas Sekitarnya"));
+            safeSetText('lp-form-area-text', "Melayani Area: Purwokerto dan seBanyumas Raya");
 
             document.getElementById('lp-footer-ig').href = k.footer_ig || "#";
             document.getElementById('lp-footer-tiktok').href = k.footer_tiktok || "#";

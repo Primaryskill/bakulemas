@@ -1,12 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Beranda -->
   <url>
     <loc>https://bakulemas.com/</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Halaman Blog (index) -->
+  <url>
+    <loc>https://bakulemas.com/blog/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Artikel 1: Cara Jual Emas Tanpa Surat -->
+  <url>
+    <loc>https://bakulemas.com/blog/cara-jual-emas-tanpa-surat/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel 2: Cara Cek Harga Emas Hari Ini -->
+  <url>
+    <loc>https://bakulemas.com/blog/cara-cek-harga-emas-hari-ini/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel 3: Jual Emas Rusak atau Patah -->
+  <url>
+    <loc>https://bakulemas.com/blog/jual-emas-rusak-patah/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel 4: Tempat Jual Emas Terpercaya di Purwokerto -->
+  <url>
+    <loc>https://bakulemas.com/blog/tempat-jual-emas-purwokerto/</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel 5: Cara Mengetahui Kadar Emas -->
+  <url>
+    <loc>https://bakulemas.com/blog/cara-mengetahui-kadar-emas/</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

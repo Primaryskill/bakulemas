@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cara Menghitung Harga Jual Emas Sendiri Sebelum ke Pembeli — Bakul Emas Purwokerto</title>
+    <meta name="description" content="Pelajari rumus sederhana menghitung harga jual emas berdasarkan kadar dan berat. Jangan sampai Anda menjual emas di bawah harga seharusnya!">
+    <meta name="keywords" content="cara hitung harga jual emas, rumus harga emas, hitung emas gram, kadar emas, bakul emas purwokerto">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bakulemas.com/blog/cara-menghitung-harga-jual-emas/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bakulemas.com/blog/cara-menghitung-harga-jual-emas/">
+    <meta property="og:title" content="Cara Menghitung Harga Jual Emas Sendiri Sebelum ke Pembeli">
+    <meta property="og:description" content="Rumus mudah menghitung estimasi harga jual emas berdasarkan kadar dan berat, agar Anda tidak rugi saat transaksi.">
+    <meta property="og:image" content="https://bakulemas.com/og-image.jpg">
+    <meta property="og:site_name" content="Bakul Emas Purwokerto">
+    <meta property="og:locale" content="id_ID">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Cara Menghitung Harga Jual Emas Sendiri Sebelum ke Pembeli",
+      "author": { "@type": "Organization", "name": "Tim Bakul Emas" },
+      "publisher": { "@type": "LocalBusiness", "name": "Bakul Emas Purwokerto", "url": "https://bakulemas.com" },
+      "datePublished": "2026-06-13",
+      "url": "https://bakulemas.com/blog/cara-menghitung-harga-jual-emas/"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://bakulemas.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://bakulemas.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Cara Menghitung Harga Jual Emas", "item": "https://bakulemas.com/blog/cara-menghitung-harga-jual-emas/" }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        emas: { 100: '#FEF3C7', 400: '#FBBF24', 500: '#F59E0B', 600: '#D97706' },
+                        gelap: '#111827'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        .bg-gelap-polos { background-color: #111827; }
+        .prose-emas h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: #111827; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+        .prose-emas h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #374151; margin-top: 1.75rem; margin-bottom: 0.5rem; }
+        .prose-emas p { color: #374151; line-height: 1.8; margin-bottom: 1rem; }
+        .prose-emas ul { list-style: none; padding: 0; }
+        .prose-emas ul li { padding-left: 1.5rem; position: relative; color: #374151; line-height: 1.8; margin-bottom: 0.4rem; }
+        .prose-emas ul li::before { content: "✓"; position: absolute; left: 0; color: #D97706; font-weight: 700; }
+        .prose-emas ol { padding-left: 1.25rem; }
+        .prose-emas ol li { color: #374151; line-height: 1.8; margin-bottom: 0.5rem; padding-left: 0.25rem; }
+        .kalkulator-box { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid #F59E0B; border-radius: 1rem; padding: 1.5rem; }
+        .rumus-box { background: #111827; color: #FBBF24; border-radius: 0.75rem; padding: 1.25rem; font-family: 'Montserrat', monospace; font-weight: 700; text-align: center; font-size: 1rem; letter-spacing: 0.02em; }
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { opacity: 1; }
+        .tabel-kadar tr:nth-child(even) { background-color: #FEF3C7; }
+        .tabel-kadar th { background-color: #111827; color: #FBBF24; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-gelap-polos sticky top-0 z-50 shadow-lg border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://bakulemas.com/" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl shadow-lg">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <div>
+                    <h1 class="text-white font-heading font-black tracking-tight leading-tight text-lg">BAKUL EMAS</h1>
+                    <p class="text-yellow-400 text-[10px] uppercase tracking-wider font-bold -mt-1">Terpercaya Sejak 2021</p>
+                </div>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=6285776663195&text=Halo%20Bakul%20Emas%2C%20saya%20mau%20tanya%20harga%20emas" target="_blank" rel="noopener"
+               class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-5 rounded-full transition transform hover:scale-105 shadow-lg flex items-center gap-2 text-sm">
+                <i class="fab fa-whatsapp"></i> <span class="hidden sm:inline">Hubungi WA</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white border-b border-gray-100 py-3 px-4">
+        <div class="max-w-3xl mx-auto text-sm text-gray-500">
+            <a href="https://bakulemas.com/" class="hover:text-yellow-600 transition">Beranda</a>
+            <span class="mx-2 text-gray-300">/</span>
+            <a href="https://bakulemas.com/blog/" class="hover:text-yellow-600 transition">Blog</a>
+            <span class="mx-2 text-gray-300">/</span>
+            <span class="text-gray-800 font-semibold">Cara Menghitung Harga Jual Emas</span>
+        </div>
+    </div>
+
+    <!-- Hero Artikel -->
+    <header class="bg-gelap-polos py-14 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex items-center gap-2 mb-4">
+                <span class="bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">Tips & Panduan</span>
+                <span class="text-gray-400 text-sm">· 6 menit baca</span>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-heading font-black text-white leading-tight mb-4">
+                Cara Menghitung Harga Jual Emas Sendiri <span class="text-yellow-400">Sebelum ke Pembeli</span>
+            </h1>
+            <p class="text-gray-300 text-lg mb-6">
+                Sebelum Anda menyerahkan emas ke siapapun, hitung dulu estimasi harganya sendiri. Panduan ini membantu Anda tidak mudah ditipu dan mendapatkan harga yang wajar.
+            </p>
+            <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user text-xs text-white"></i>
+                </div>
+                <span class="text-gray-300 font-semibold">Tim Bakul Emas</span>
+                <span class="text-gray-600">·</span>
+                <span>Juni 2026</span>
+                <span class="text-gray-600">·</span>
+                <span>Purwokerto</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Konten Artikel -->
+    <main class="py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- Intro highlight -->
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 rounded-r-xl p-5 mb-8">
+                <p class="text-yellow-800 font-semibold text-sm leading-relaxed">
+                    💡 <strong>Tahukah Anda?</strong> Banyak penjual emas yang tidak tahu cara menghitung nilai emas mereka, sehingga menerima begitu saja harga yang ditawarkan pembeli. Padahal, dengan rumus sederhana, Anda bisa tahu apakah tawaran itu wajar atau tidak.
+                </p>
+            </div>
+
+            <article class="prose-emas">
+
+                <h2>Mengapa Anda Perlu Menghitung Sendiri?</h2>
+                <p>Saat menjual emas — entah itu kalung, gelang, cincin, atau emas batangan — Anda berhak tahu berapa estimasi nilai emas tersebut sebelum negosiasi dimulai. Dengan menghitung sendiri, Anda bisa:</p>
+                <ul>
+                    <li>Menilai apakah tawaran pembeli itu wajar</li>
+                    <li>Menghindari potongan harga yang tidak masuk akal</li>
+                    <li>Lebih percaya diri saat bernegosiasi</li>
+                    <li>Membandingkan harga dari beberapa pembeli</li>
+                </ul>
+
+                <h2>Yang Perlu Anda Siapkan</h2>
+                <p>Sebelum menghitung, siapkan dua informasi dasar ini:</p>
+                <ol>
+                    <li><strong>Kadar emas</strong> — biasanya tertera pada perhiasan (contoh: 750 untuk 18K, 700 untuk taksiran pasar)</li>
+                    <li><strong>Berat emas</strong> — timbang dengan timbangan digital yang akurat, dalam satuan gram</li>
+                </ol>
+                <p>Untuk harga acuan, Anda bisa cek harga emas hari ini di situs resmi seperti Logam Mulia atau Antam, atau tanyakan langsung ke bakul emas terpercaya di area Anda.</p>
+
+                <h2>Rumus Dasar Menghitung Harga Jual Emas</h2>
+                <p>Rumus yang digunakan sangat sederhana:</p>
+
+                <div class="rumus-box my-6">
+                    Estimasi Harga = (Kadar / 24) × Berat (gram) × Harga Emas 24K per gram
+                </div>
+
+                <p>Contoh praktis: Anda memiliki gelang emas 18K seberat 5 gram, dan harga emas 24K hari ini adalah Rp1.600.000/gram.</p>
+                <div class="bg-gray-100 rounded-xl p-5 my-4 font-mono text-sm">
+                    <p class="text-gray-600 mb-1">Kadar 18K = 18 ÷ 24 = <strong>0,75</strong></p>
+                    <p class="text-gray-600 mb-1">Estimasi = 0,75 × 5 gram × Rp1.600.000</p>
+                    <p class="text-yellow-700 font-bold text-base">= Rp6.000.000</p>
+                </div>
+                <p>Artinya, nilai emas murni Anda sekitar Rp6.000.000. Pembeli biasanya memberikan harga sedikit di bawah ini (95–98%) karena ada biaya proses, tapi jika tawaran jauh di bawah itu, patut dipertanyakan.</p>
+
+                <h2>Tabel Kadar Emas Umum di Indonesia</h2>
+                <p>Berikut panduan kadar emas yang sering ditemui di pasaran:</p>
+            </article>
+
+            <!-- Tabel Kadar -->
+            <div class="overflow-x-auto my-6 rounded-xl shadow-sm border border-gray-200">
+                <table class="w-full text-sm tabel-kadar">
+                    <thead>
+                        <tr>
+                            <th class="py-3 px-4 text-left font-bold">Karat</th>
+                            <th class="py-3 px-4 text-left font-bold">Kode Stamp</th>
+                            <th class="py-3 px-4 text-left font-bold">Kadar Murni</th>
+                            <th class="py-3 px-4 text-left font-bold">Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-sans">
+                        <tr><td class="py-2.5 px-4 font-semibold">24K</td><td class="py-2.5 px-4">999 / 9999</td><td class="py-2.5 px-4">99,9%</td><td class="py-2.5 px-4">Emas batangan Antam</td></tr>
+                        <tr><td class="py-2.5 px-4 font-semibold">22K</td><td class="py-2.5 px-4">916</td><td class="py-2.5 px-4">91,6%</td><td class="py-2.5 px-4">Perhiasan kualitas tinggi</td></tr>
+                        <tr><td class="py-2.5 px-4 font-semibold">20K</td><td class="py-2.5 px-4">835</td><td class="py-2.5 px-4">83,5%</td><td class="py-2.5 px-4">Umum di toko emas lokal</td></tr>
+                        <tr><td class="py-2.5 px-4 font-semibold">18K</td><td class="py-2.5 px-4">750</td><td class="py-2.5 px-4">75,0%</td><td class="py-2.5 px-4">Paling umum di Indonesia</td></tr>
+                        <tr><td class="py-2.5 px-4 font-semibold">17K</td><td class="py-2.5 px-4">700</td><td class="py-2.5 px-4">70,0%</td><td class="py-2.5 px-4">Perhiasan toko menengah</td></tr>
+                        <tr><td class="py-2.5 px-4 font-semibold">16K</td><td class="py-2.5 px-4">667</td><td class="py-2.5 px-4">66,7%</td><td class="py-2.5 px-4">Perhiasan harga terjangkau</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Kalkulator Interaktif -->
+            <div class="kalkulator-box my-8">
+                <h3 class="font-heading font-black text-gray-900 text-xl mb-1 flex items-center gap-2">
+                    <i class="fas fa-calculator text-yellow-600"></i> Kalkulator Estimasi Harga Emas
+                </h3>
+                <p class="text-gray-600 text-sm mb-5">Hitung perkiraan nilai emas Anda di sini. Masukkan data di bawah:</p>
+                <div class="grid md:grid-cols-3 gap-4 mb-5">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Kadar Emas (Karat)</label>
+                        <select id="kadar" class="w-full border border-yellow-300 rounded-lg px-3 py-2.5 bg-white text-gray-800 font-semibold focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+                            <option value="24">24K (99,9%)</option>
+                            <option value="22">22K (91,6%)</option>
+                            <option value="20">20K (83,5%)</option>
+                            <option value="18" selected>18K (75,0%)</option>
+                            <option value="17">17K (70,0%)</option>
+                            <option value="16">16K (66,7%)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Berat (gram)</label>
+                        <input type="number" id="berat" value="5" min="0.1" step="0.1"
+                               class="w-full border border-yellow-300 rounded-lg px-3 py-2.5 bg-white text-gray-800 font-semibold focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1">Harga 24K/gram (Rp)</label>
+                        <input type="number" id="harga24k" value="1600000" step="10000"
+                               class="w-full border border-yellow-300 rounded-lg px-3 py-2.5 bg-white text-gray-800 font-semibold focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+                    </div>
+                </div>
+                <button onclick="hitungEmas()"
+                    class="w-full bg-gray-900 hover:bg-gray-700 text-yellow-400 font-black py-3 rounded-xl transition text-sm tracking-wide uppercase">
+                    Hitung Estimasi Harga
+                </button>
+                <div id="hasil" class="mt-5 hidden">
+                    <div class="bg-white rounded-xl p-4 border border-yellow-300">
+                        <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-1">Estimasi Nilai Emas Anda</p>
+                        <p id="hasilAngka" class="text-3xl font-heading font-black text-gray-900"></p>
+                        <p id="hasilDetail" class="text-xs text-gray-500 mt-1"></p>
+                        <p class="text-xs text-amber-700 mt-3 bg-amber-50 rounded-lg p-2">⚠️ Ini adalah estimasi nilai emas murni. Harga beli aktual dari pembeli biasanya 95–98% dari nilai ini.</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="prose-emas">
+                <h2>Tips Agar Hasil Hitungan Lebih Akurat</h2>
+                <ul>
+                    <li>Gunakan timbangan digital yang telah dikalibrasi — hindari mengandalkan perkiraan visual</li>
+                    <li>Perhatikan kadar stamp pada perhiasan Anda sebelum menghitung</li>
+                    <li>Cek harga emas hari ini, bukan menggunakan harga minggu lalu</li>
+                    <li>Jika perhiasan mengandung batu permata, beratnya harus dikurangi terlebih dahulu</li>
+                    <li>Untuk emas tanpa stamp kadar, minta uji kadar di toko emas atau bakul terpercaya</li>
+                </ul>
+
+                <h2>Berapa Persen Potongan yang Wajar?</h2>
+                <p>Saat menjual emas perhiasan (bukan batangan), pembeli akan memberikan harga sedikit di bawah nilai emas murni. Ini hal yang wajar karena pembeli perlu memperhitungkan ongkos lebur dan risiko usaha. Potongan yang <strong>wajar</strong> biasanya:</p>
+                <ul>
+                    <li>Emas batangan Antam: <strong>98–100%</strong> dari harga buyback resmi</li>
+                    <li>Perhiasan kadar tinggi (22K–24K): <strong>95–98%</strong> dari estimasi</li>
+                    <li>Perhiasan kadar sedang (18K–20K): <strong>92–96%</strong> dari estimasi</li>
+                    <li>Perhiasan kadar rendah (&lt;18K): <strong>88–93%</strong> dari estimasi</li>
+                </ul>
+                <p>Jika tawaran jauh di bawah angka ini, ada baiknya Anda membandingkan ke beberapa pembeli terlebih dahulu.</p>
+
+                <h2>Sudah Hitung? Sekarang Saatnya Jual</h2>
+                <p>Setelah Anda punya estimasi harga sendiri, Anda jauh lebih siap untuk bernegosiasi. Di Bakul Emas Purwokerto, kami selalu transparan soal harga — bahkan bisa Anda tanyakan sebelum COD. Tidak perlu khawatir, bayar langsung di tempat dan tidak ada biaya tambahan.</p>
+            </article>
+
+            <!-- CTA Box -->
+            <div class="bg-gelap-polos rounded-2xl p-8 text-center mt-10">
+                <div class="w-14 h-14 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fab fa-whatsapp text-2xl text-gray-900"></i>
+                </div>
+                <h3 class="font-heading font-black text-white text-xl mb-2">Sudah Tahu Estimasi Harganya?</h3>
+                <p class="text-gray-400 text-sm mb-5">Hubungi kami sekarang untuk konfirmasi harga hari ini. COD gratis, bayar langsung di tempat, tanpa ribet.</p>
+                <a href="https://api.whatsapp.com/send?phone=6285776663195&text=Halo%20Bakul%20Emas%2C%20saya%20mau%20jual%20emas%20dan%20sudah%20hitung%20estimasinya" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-extrabold py-3 px-8 rounded-full text-sm transition transform hover:-translate-y-1 shadow-lg">
+                    <i class="fab fa-whatsapp"></i> Tanya Harga Hari Ini
+                </a>
+            </div>
+
+            <!-- Navigasi Artikel -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Artikel Terkait</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://bakulemas.com/blog/cara-mengetahui-kadar-emas/" class="bg-white rounded-xl p-4 border border-gray-100 hover:border-yellow-300 transition group shadow-sm">
+                        <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2 py-0.5 rounded-full">Edukasi</span>
+                        <p class="font-heading font-black text-gray-900 text-sm mt-2 group-hover:text-yellow-600 transition">Cara Mengetahui Kadar Emas Perhiasan Anda</p>
+                    </a>
+                    <a href="https://bakulemas.com/blog/cara-cek-harga-emas-hari-ini/" class="bg-white rounded-xl p-4 border border-gray-100 hover:border-yellow-300 transition group shadow-sm">
+                        <span class="bg-blue-50 text-blue-600 text-xs font-bold px-2 py-0.5 rounded-full">Info Harga</span>
+                        <p class="font-heading font-black text-gray-900 text-sm mt-2 group-hover:text-yellow-600 transition">Cara Cek Harga Emas Hari Ini Sebelum Menjual</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 px-4 mt-12">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 text-xs font-bold">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <span class="text-gray-300 font-semibold">Bakul Emas Purwokerto</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://bakulemas.com/" class="hover:text-yellow-400 transition">Beranda</a>
+                <a href="https://bakulemas.com/blog/" class="hover:text-yellow-400 transition">Blog</a>
+            </div>
+            <p>© 2026 Bakul Emas Purwokerto. Terpercaya Sejak 2021.</p>
+        </div>
+    </footer>
+
+    <script>
+        function hitungEmas() {
+            const kadar = parseFloat(document.getElementById('kadar').value);
+            const berat = parseFloat(document.getElementById('berat').value);
+            const harga24k = parseFloat(document.getElementById('harga24k').value);
+
+            if (!berat || berat <= 0 || !harga24k || harga24k <= 0) {
+                alert('Mohon isi berat dan harga dengan benar.');
+                return;
+            }
+
+            const estimasi = (kadar / 24) * berat * harga24k;
+            const formatted = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(estimasi);
+            const persen = ((kadar / 24) * 100).toFixed(1);
+
+            document.getElementById('hasilAngka').textContent = formatted;
+            document.getElementById('hasilDetail').textContent = `Kadar ${kadar}K (${persen}%) × ${berat}g × Rp${harga24k.toLocaleString('id-ID')}/gram`;
+            document.getElementById('hasil').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>

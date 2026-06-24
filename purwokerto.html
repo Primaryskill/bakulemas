@@ -166,253 +166,23 @@
     }
     </script>
 
-    <!-- Preconnect untuk Google Fonts agar lebih cepat -->
+    <!-- Preconnect Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Load font async — tidak render-blocking -->
+    <!-- Font Awesome non-blocking -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+    <!-- Google Fonts non-blocking -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap"></noscript>
-
+    <!-- Tailwind CSS (generated via CLI, bukan CDN) -->
     <style>
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: 16px; }
-        body { font-family: Inter, system-ui, -apple-system, sans-serif; background: #f9fafb; color: #1f2937; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-
-        /* ===== FONT AWESOME ICONS — SVG inline via CSS mask ===== */
-        /* Ganti class i.fas dengan span.icon untuk icon SVG sederhana */
-        /* Semua icon dirender via SVG inline langsung di HTML */
-
-        /* ===== TYPOGRAPHY ===== */
-        h1,h2,h3,h4 { font-family: Montserrat, system-ui, sans-serif; }
-        a { text-decoration: none; color: inherit; }
-        strong { font-weight: 700; }
-
-        /* ===== LAYOUT UTILITIES ===== */
-        .max-w-6xl { max-width: 72rem; }
-        .max-w-5xl { max-width: 64rem; }
-        .max-w-4xl { max-width: 56rem; }
-        .max-w-3xl { max-width: 48rem; }
-        .max-w-2xl { max-width: 42rem; }
-        .max-w-xl  { max-width: 36rem; }
-        .mx-auto   { margin-left: auto; margin-right: auto; }
-        .px-4  { padding-left: 1rem; padding-right: 1rem; }
-        .py-2  { padding-top: .5rem; padding-bottom: .5rem; }
-        .py-3  { padding-top: .75rem; padding-bottom: .75rem; }
-        .py-4  { padding-top: 1rem; padding-bottom: 1rem; }
-        .py-5  { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
-        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
-        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-        .pt-12 { padding-top: 3rem; }
-        .pb-24 { padding-bottom: 6rem; }
-        .pb-2  { padding-bottom: .5rem; }
-        .p-4   { padding: 1rem; }
-        .p-5   { padding: 1.25rem; }
-        .p-6   { padding: 1.5rem; }
-        .px-4  { padding-left: 1rem; padding-right: 1rem; }
-        .px-6  { padding-left: 1.5rem; padding-right: 1.5rem; }
-        .px-8  { padding-left: 2rem; padding-right: 2rem; }
-        .px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
-        .px-4  { padding-left: 1rem; padding-right: 1rem; }
-        .pr-4  { padding-right: 1rem; }
-        .mt-3  { margin-top: .75rem; }
-        .mt-4  { margin-top: 1rem; }
-        .mt-8  { margin-top: 2rem; }
-        .mt-10 { margin-top: 2.5rem; }
-        .mb-2  { margin-bottom: .5rem; }
-        .mb-3  { margin-bottom: .75rem; }
-        .mb-4  { margin-bottom: 1rem; }
-        .mb-6  { margin-bottom: 1.5rem; }
-        .mb-8  { margin-bottom: 2rem; }
-        .mb-10 { margin-bottom: 2.5rem; }
-        .mb-12 { margin-bottom: 3rem; }
-        .mr-1  { margin-right: .25rem; }
-        .mr-2  { margin-right: .5rem; }
-        .-mt-1 { margin-top: -.25rem; }
-
-        /* ===== FLEXBOX ===== */
-        .flex          { display: flex; }
-        .inline-flex   { display: inline-flex; }
-        .flex-wrap     { flex-wrap: wrap; }
-        .flex-col      { flex-direction: column; }
-        .flex-shrink-0 { flex-shrink: 0; }
-        .items-center  { align-items: center; }
-        .justify-center{ justify-content: center; }
-        .justify-between{justify-content: space-between; }
-        .gap-1  { gap: .25rem; }
-        .gap-2  { gap: .5rem; }
-        .gap-3  { gap: .75rem; }
-        .gap-4  { gap: 1rem; }
-        .gap-6  { gap: 1.5rem; }
-        .gap-8  { gap: 2rem; }
-
-        /* ===== GRID ===== */
-        .grid { display: grid; }
-        .grid-cols-1 { grid-template-columns: repeat(1,minmax(0,1fr)); }
-        .grid-cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-        .col-span-2  { grid-column: span 2; }
-        @media (min-width:640px) {
-            .sm\:grid-cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-            .sm\:w-auto { width: auto; }
-            .sm\:inline { display: inline; }
-            .sm\:text-sm { font-size: .875rem; }
-        }
-        @media (min-width:768px) {
-            .md\:grid-cols-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
-            .md\:grid-cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
-            .md\:grid-cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
-            .md\:text-lg { font-size: 1.125rem; }
-            .md\:text-2xl { font-size: 1.5rem; }
-            .md\:text-3xl { font-size: 1.875rem; }
-            .md\:text-5xl { font-size: 3rem; }
-            .md\:cols-2 { columns: 2; }
-        }
-        @media (min-width:1024px) {
-            .lg\:grid-cols-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
-            .lg\:grid-cols-4 { grid-template-columns: repeat(4,minmax(0,1fr)); }
-        }
-
-        /* ===== SIZING ===== */
-        .w-6  { width: 1.5rem; }
-        .w-10 { width: 2.5rem; }
-        .w-12 { width: 3rem; }
-        .w-14 { width: 3.5rem; }
-        .w-16 { width: 4rem; }
-        .w-full { width: 100%; }
-        .h-10 { height: 2.5rem; }
-        .h-12 { height: 3rem; }
-        .h-14 { height: 3.5rem; }
-        .h-16 { height: 4rem; }
-        .min-w-0 { min-width: 0; }
-
-        /* ===== BORDERS & RADIUS ===== */
-        .rounded-full { border-radius: 9999px; }
-        .rounded-xl   { border-radius: .75rem; }
-        .rounded-2xl  { border-radius: 1rem; }
-        .border       { border-width: 1px; border-style: solid; }
-        .border-t     { border-top-width: 1px; border-top-style: solid; }
-        .border-b     { border-bottom-width: 1px; border-bottom-style: solid; }
-        .overflow-hidden { overflow: hidden; }
-
-        /* ===== COLORS — BG ===== */
-        .bg-yellow-500 { background-color: #F59E0B; }
-        .bg-yellow-50  { background-color: #FFFBEB; }
-        .bg-yellow-100 { background-color: #FEF3C7; }
-        .bg-green-500  { background-color: #22C55E; }
-        .bg-gray-50    { background-color: #F9FAFB; }
-        .bg-gray-800   { background-color: #1F2937; }
-        .bg-gray-900   { background-color: #111827; }
-        .bg-white      { background-color: #fff; }
-        .bg-gelap-polos { background-color: #111827; }
-
-        /* ===== COLORS — TEXT ===== */
-        .text-white    { color: #fff; }
-        .text-gray-900 { color: #111827; }
-        .text-gray-800 { color: #1F2937; }
-        .text-gray-700 { color: #374151; }
-        .text-gray-600 { color: #4B5563; }
-        .text-gray-500 { color: #6B7280; }
-        .text-gray-400 { color: #9CA3AF; }
-        .text-gray-300 { color: #E5E7EB; }
-        .text-yellow-400 { color: #FBBF24; }
-        .text-yellow-500 { color: #F59E0B; }
-        .text-yellow-600 { color: #D97706; }
-        .text-green-400  { color: #4ADE80; }
-        .text-red-600    { color: #DC2626; }
-
-        /* ===== COLORS — BORDER ===== */
-        .border-gray-100 { border-color: #F3F4F6; }
-        .border-gray-200 { border-color: #E5E7EB; }
-        .border-gray-700 { border-color: #374151; }
-        .border-gray-800 { border-color: #1F2937; }
-        .border-yellow-200 { border-color: #FDE68A; }
-
-        /* ===== FONT SIZES ===== */
-        .text-xs   { font-size: .75rem; line-height: 1rem; }
-        .text-sm   { font-size: .875rem; line-height: 1.25rem; }
-        .text-base { font-size: 1rem; line-height: 1.5rem; }
-        .text-lg   { font-size: 1.125rem; line-height: 1.75rem; }
-        .text-xl   { font-size: 1.25rem; line-height: 1.75rem; }
-        .text-2xl  { font-size: 1.5rem; line-height: 2rem; }
-        .text-3xl  { font-size: 1.875rem; line-height: 2.25rem; }
-        .text-\[10px\] { font-size: 10px; }
-        .text-\[10px\] { font-size: 10px; }
-
-        /* ===== FONT WEIGHT ===== */
-        .font-bold    { font-weight: 700; }
-        .font-black   { font-weight: 900; }
-        .font-semibold{ font-weight: 600; }
-        .font-heading { font-family: Montserrat, system-ui, sans-serif; }
-        .font-sans    { font-family: Inter, system-ui, sans-serif; }
-        .uppercase    { text-transform: uppercase; }
-        .tracking-tight  { letter-spacing: -.025em; }
-        .tracking-wider  { letter-spacing: .05em; }
-        .tracking-widest { letter-spacing: .1em; }
-        .leading-tight   { line-height: 1.25; }
-        .leading-relaxed { line-height: 1.625; }
-        .text-center { text-align: center; }
-        .text-left   { text-align: left; }
-        .antialiased { -webkit-font-smoothing: antialiased; }
-
-        /* ===== DISPLAY ===== */
-        .block  { display: block; }
-        .inline-block { display: inline-block; }
-        .hidden { display: none; }
-
-        /* ===== POSITION ===== */
-        .relative { position: relative; }
-        .absolute { position: absolute; }
-        .fixed    { position: fixed; }
-        .sticky   { position: sticky; }
-        .top-0    { top: 0; }
-        .bottom-6 { bottom: 1.5rem; }
-        .right-6  { right: 1.5rem; }
-        .inset-0  { inset: 0; }
-        .z-10 { z-index: 10; }
-        .z-40 { z-index: 40; }
-        .z-50 { z-index: 50; }
-
-        /* ===== SHADOW ===== */
-        .shadow-sm  { box-shadow: 0 1px 2px rgba(0,0,0,.05); }
-        .shadow-md  { box-shadow: 0 4px 6px rgba(0,0,0,.1); }
-        .shadow-lg  { box-shadow: 0 10px 15px rgba(0,0,0,.1); }
-        .shadow-xl  { box-shadow: 0 20px 25px rgba(0,0,0,.15); }
-
-        /* ===== TRANSITIONS ===== */
-        .transition { transition: all .15s ease; }
-        .transition-transform { transition: transform .3s ease; }
-        .duration-300 { transition-duration: .3s; }
-
-        /* ===== HOVER ===== */
-        .hover\:bg-green-600:hover  { background-color: #16A34A; }
-        .hover\:bg-green-400:hover  { background-color: #4ADE80; }
-        .hover\:bg-yellow-50:hover  { background-color: #FFFBEB; }
-        .hover\:bg-green-500:hover  { background-color: #22C55E; }
-        .hover\:text-yellow-400:hover { color: #FBBF24; }
-        .hover\:text-yellow-300:hover { color: #FCD34D; }
-        .hover\:shadow-md:hover  { box-shadow: 0 4px 6px rgba(0,0,0,.1); }
-        .hover\:scale-110:hover  { transform: scale(1.1); }
-        .hover\:-translate-y-1:hover { transform: translateY(-4px); }
-
-        /* ===== MISC ===== */
-        .space-y-4 > * + * { margin-top: 1rem; }
-        .opacity-5 { opacity: .05; }
-        .blur-3xl { filter: blur(64px); }
-        .w-72 { width: 18rem; }
-        .w-96 { width: 24rem; }
-        .h-72 { height: 18rem; }
-        .h-96 { height: 24rem; }
-        .top-10  { top: 2.5rem; }
-        .left-10 { left: 2.5rem; }
-        .rotate-180 { transform: rotate(180deg); }
-        .prose { max-width: 65ch; }
-        .prose-gray { color: #4B5563; }
-        .max-w-none { max-width: none; }
-
-        /* ===== CUSTOM COMPONENTS ===== */
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.bottom-0{bottom:0}.bottom-6{bottom:1.5rem}.left-10{left:2.5rem}.right-0{right:0}.right-6{right:1.5rem}.top-0{top:0}.top-10{top:2.5rem}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.-mt-1{margin-top:-.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mr-1{margin-right:.25rem}.mr-2{margin-right:.5rem}.mt-10{margin-top:2.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-72{height:18rem}.h-96{height:24rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-6{width:1.5rem}.w-72{width:18rem}.w-96{width:24rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.max-w-none{max-width:none}.max-w-xl{max-width:36rem}.flex-shrink-0{flex-shrink:0}.rotate-180{--tw-rotate:180deg}.rotate-180,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%,to{transform:translateY(-25%);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,.2,1)}}.animate-bounce{animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246/var(--tw-border-opacity,1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235/var(--tw-border-opacity,1))}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81/var(--tw-border-opacity,1))}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55/var(--tw-border-opacity,1))}.border-yellow-200{--tw-border-opacity:1;border-color:rgb(254 240 138/var(--tw-border-opacity,1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251/var(--tw-bg-opacity,1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39/var(--tw-bg-opacity,1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-yellow-100{--tw-bg-opacity:1;background-color:rgb(254 249 195/var(--tw-bg-opacity,1))}.bg-yellow-400{--tw-bg-opacity:1;background-color:rgb(250 204 21/var(--tw-bg-opacity,1))}.bg-yellow-50{--tw-bg-opacity:1;background-color:rgb(254 252 232/var(--tw-bg-opacity,1))}.bg-yellow-500{--tw-bg-opacity:1;background-color:rgb(234 179 8/var(--tw-bg-opacity,1))}.bg-yellow-600{--tw-bg-opacity:1;background-color:rgb(202 138 4/var(--tw-bg-opacity,1))}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-2{padding-bottom:.5rem}.pb-24{padding-bottom:6rem}.pr-4{padding-right:1rem}.pt-12{padding-top:3rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-heading{font-family:Montserrat,sans-serif}.font-sans{font-family:Inter,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219/var(--tw-text-opacity,1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175/var(--tw-text-opacity,1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128/var(--tw-text-opacity,1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99/var(--tw-text-opacity,1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81/var(--tw-text-opacity,1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55/var(--tw-text-opacity,1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.text-green-400{--tw-text-opacity:1;color:rgb(74 222 128/var(--tw-text-opacity,1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.text-yellow-400{--tw-text-opacity:1;color:rgb(250 204 21/var(--tw-text-opacity,1))}.text-yellow-500{--tw-text-opacity:1;color:rgb(234 179 8/var(--tw-text-opacity,1))}.text-yellow-600{--tw-text-opacity:1;color:rgb(202 138 4/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-5{opacity:.05}.shadow-\[0_10px_20px_rgba\(34\2c 197\2c 94\2c 0\.4\)\]{--tw-shadow:0 10px 20px rgba(34,197,94,.4);--tw-shadow-colored:0 10px 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_10px_30px_rgba\(34\2c 197\2c 94\2c 0\.4\)\]{--tw-shadow:0 10px 30px rgba(34,197,94,.4);--tw-shadow-colored:0 10px 30px var(--tw-shadow-color)}.shadow-\[0_10px_30px_rgba\(34\2c 197\2c 94\2c 0\.4\)\],.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-md,.shadow-sm{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem}.hover\:-translate-y-1:hover,.hover\:scale-110:hover{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1}.hover\:bg-green-400:hover{--tw-bg-opacity:1;background-color:rgb(74 222 128/var(--tw-bg-opacity,1))}.hover\:bg-green-500:hover{--tw-bg-opacity:1;background-color:rgb(34 197 94/var(--tw-bg-opacity,1))}.hover\:bg-green-600:hover{--tw-bg-opacity:1;background-color:rgb(22 163 74/var(--tw-bg-opacity,1))}.hover\:bg-yellow-50:hover{--tw-bg-opacity:1;background-color:rgb(254 252 232/var(--tw-bg-opacity,1))}.hover\:text-yellow-300:hover{--tw-text-opacity:1;color:rgb(253 224 71/var(--tw-text-opacity,1))}.hover\:text-yellow-400:hover{--tw-text-opacity:1;color:rgb(250 204 21/var(--tw-text-opacity,1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}@media (min-width:640px){.sm\:inline{display:inline}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}}@media (min-width:768px){.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-sm{font-size:.875rem;line-height:1.25rem}}@media (min-width:1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+        /* ===== CUSTOM STYLES ===== */
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { overflow-x: hidden; }
+        .bg-gelap-polos { background-color: #111827; }
         .marquee-container { overflow: hidden; white-space: nowrap; }
         .marquee-content { display: inline-block; animation: marquee 18s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
@@ -421,20 +191,7 @@
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         .kecamatan-tag { display: inline-flex; align-items: center; gap: 4px; background: #1F2937; color: #FCD34D; border: 1px solid #374151; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin: 3px; transition: all 0.2s; }
         .kecamatan-tag:hover { background: #F59E0B; color: #111827; }
-        .kecamatan-tag .ic { font-size: 0.65rem; }
-        .animate-pulse { animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite; }
-        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
-        .animate-bounce { animation: bounce 1s infinite; }
-        @keyframes bounce { 0%,100%{transform:translateY(-10%);animation-timing-function:cubic-bezier(.8,0,1,1)} 50%{transform:translateY(0);animation-timing-function:cubic-bezier(0,0,.2,1)} }
-        .shadow-green { box-shadow: 0 10px 30px rgba(34,197,94,0.4); }
-        .shadow-green-xl { box-shadow: 0 10px 20px rgba(34,197,94,0.4); }
-        .faq-answer { border-top: 1px solid #F3F4F6; background: #fff; padding: 1.25rem 1.5rem; color: #4B5563; line-height: 1.625; }
-        .faq-btn { width: 100%; text-align: left; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; background: #F9FAFB; border: none; cursor: pointer; }
-        .faq-btn:hover { background: #FFFBEB; }
-
-        /* Icon replacements (SVG inline) */
-        .ic { display: inline-block; vertical-align: middle; }
-        .ic svg { display: inline-block; }
+        .kecamatan-tag i { font-size: 0.65rem; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
@@ -442,11 +199,11 @@
     <!-- Banner Urgency -->
     <div class="bg-yellow-500 text-gray-900 py-2 px-4 text-center text-xs md:text-sm font-bold shadow-md">
         <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
-            <svg style="display:inline-block;vertical-align:middle;" width="12" height="14" viewBox="0 0 384 512" fill="#DC2626"><path d="M216 23.9c0-23.8-30.7-32.8-44.6-13.1C48.4 194.2 224 255 224 384c0 35.3-28.7 64-64 64s-64-28.7-64-64c0-76 103.1-91.6 103.1-91.6s-35.7 36.3-35.7 91.6c0 53 43 96 96 96s96-43 96-96c0-147.1-139.5-200.5-139.4-360.1z"/></svg>
+            <i class="fas fa-fire animate-pulse text-red-600"></i>
             <span class="marquee-container w-full sm:w-auto">
                 <span class="marquee-content">🏠 COD Gratis ke Seluruh Kecamatan Purwokerto & Banyumas — Harga Realtime, Bayar Tunai Langsung!</span>
             </span>
-            <svg style="display:inline-block;vertical-align:middle;" width="12" height="14" viewBox="0 0 384 512" fill="#DC2626"><path d="M216 23.9c0-23.8-30.7-32.8-44.6-13.1C48.4 194.2 224 255 224 384c0 35.3-28.7 64-64 64s-64-28.7-64-64c0-76 103.1-91.6 103.1-91.6s-35.7 36.3-35.7 91.6c0 53 43 96 96 96s96-43 96-96c0-147.1-139.5-200.5-139.4-360.1z"/></svg>
+            <i class="fas fa-fire animate-pulse text-red-600 hidden sm:inline"></i>
         </div>
     </div>
 
@@ -455,7 +212,7 @@
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <a href="https://bakulemas.com/" class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl shadow-lg">
-                    <svg style="display:inline-block;vertical-align:middle;" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M0 405.3V448c0 35.3 86 64 192 64s192-28.7 192-64v-42.7C342.7 434.4 273.6 448 192 448S41.3 434.4 0 405.3zM320 128c106 0 192-28.7 192-64S426 0 320 0 128 28.7 128 64s86 64 192 64zM0 300.4V352c0 35.3 86 64 192 64s192-28.7 192-64v-51.6c-41.3 34-116.9 51.6-192 51.6S41.3 334.4 0 300.4zm416 11.4V208c0 35.3-86 64-192 64S32 243.3 32 208v103.8C73.3 345.4 148.9 363 224 363s150.7-17.6 192-51.2z"/></svg>
+                    <i class="fas fa-coins"></i>
                 </div>
                 <div>
                     <h1 class="text-white font-heading font-black tracking-tight leading-tight text-lg">BAKUL EMAS</h1>
@@ -464,12 +221,12 @@
             </a>
             <div class="flex items-center gap-3">
                 <a href="https://bakulemas.com/blog/" class="inline-flex items-center gap-2 text-yellow-400 hover:text-yellow-300 font-semibold text-sm transition">
-                    <svg style="display:inline-block;vertical-align:middle;" width="16" height="16" viewBox="0 0 576 512" fill="currentColor"><path d="M552 64H88c-13.3 0-24 10.7-24 24v8H24C10.7 96 0 106.7 0 120v292c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V88c0-13.3-10.7-24-24-24zM64 412c0 8.8-7.2 16-16 16s-16-7.2-16-16V128h32v284zm480 0c0 8.8-7.2 16-16 16H95.9c.1-1.3.1-2.6.1-4V112h448v300z"/></svg> <span class="hidden sm:inline">Blog</span>
+                    <i class="fas fa-newspaper"></i> <span class="hidden sm:inline">Blog</span>
                 </a>
                 <a href="https://wa.me/6285776663195?text=Halo%20Bakul%20Emas%2C%20saya%20mau%20jual%20emas%20di%20Purwokerto"
                    target="_blank"
                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full text-sm transition inline-flex items-center gap-2 shadow-lg">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18" height="18" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> Chat WA
+                    <i class="fab fa-whatsapp"></i> Chat WA
                 </a>
             </div>
         </div>
@@ -477,9 +234,9 @@
 
     <!-- Breadcrumb -->
     <div class="bg-gray-800 border-b border-gray-700">
-        <div class="max-w-6xl mx-auto px-4 py-2 text-xs flex items-center gap-2" style="color:#D1D5DB">
+        <div class="max-w-6xl mx-auto px-4 py-2 text-xs text-gray-400 flex items-center gap-2">
             <a href="https://bakulemas.com/" class="hover:text-yellow-400 transition">Beranda</a>
-            <svg style="display:inline-block;vertical-align:middle;" width="10" height="10" viewBox="0 0 320 512" fill="currentColor"><path d="M285.5 250.5l-175 175c-9.4 9.4-24.6 9.4-33.9 0l-22.7-22.7c-9.4-9.4-9.4-24.6 0-33.9L191.1 256 54 138.1c-9.4-9.4-9.4-24.6 0-33.9L76.7 81.5c9.4-9.4 24.6-9.4 33.9 0l175 175c9.4 9.4 9.4 24.6-.1 34z"/></svg>
+            <i class="fas fa-chevron-right text-[10px]"></i>
             <span class="text-yellow-400 font-semibold">Jual Emas Purwokerto</span>
         </div>
     </div>
@@ -492,34 +249,34 @@
         </div>
         <div class="max-w-4xl mx-auto text-center relative z-10 fade-in">
             <span class="inline-block bg-yellow-500 text-gray-900 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 shadow-lg">
-                <svg style="display:inline-block;vertical-align:middle;margin-right:4px;" width="12" height="16" viewBox="0 0 384 512" fill="currentColor"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg> Layanan Purwokerto & Banyumas Raya
+                <i class="fas fa-map-marker-alt mr-1"></i> Layanan Purwokerto & Banyumas Raya
             </span>
             <h1 class="font-heading font-black text-white text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
                 Jual Emas di Purwokerto<br>
                 <span class="text-yellow-400">Harga Tinggi, COD ke Rumah</span>
             </h1>
-            <p style="color:#E5E7EB" class="text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p class="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
                 Melayani seluruh kecamatan di Purwokerto dan Banyumas Raya. Emas rusak, tanpa surat, perhiasan, logam mulia — semua diterima. Timbang di tempat, bayar tunai langsung!
             </p>
 
             <!-- Trust Bar -->
             <div class="flex flex-wrap justify-center gap-4 mb-10">
                 <div class="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700">
-                    <svg style="display:inline-block;vertical-align:middle;" width="16" height="16" viewBox="0 0 576 512" fill="#FBBF24"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/></svg>
+                    <i class="fas fa-star text-yellow-400"></i>
                     <span class="text-white text-sm font-bold">4.9/5</span>
-                    <span style="color:#D1D5DB" class="text-xs">Rating</span>
+                    <span class="text-gray-400 text-xs">Rating</span>
                 </div>
                 <div class="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18" height="16" viewBox="0 0 640 512" fill="#FBBF24"><path d="M434.7 64h-85.9c-8 0-15.7 3-21.6 8.4l-98.3 90c-.1.1-.2.3-.3.4-16.6 15.6-16.3 40.5-2.1 56 12.7 13.9 39.4 17.6 56.1 2.7.1-.1.3-.1.4-.2l79.9-73.2c6.5-5.9 16.7-5.5 22.6 1 6 6.5 5.5 16.6-1 22.6l-26.1 23.9L504 313.8c2.9 2.4 5.5 5 7.9 7.7V128l-43.6-43.9c-5.9-6-14.1-9.1-22.4-9.1c-1 0-2 0-3 .1l-8.2 0zM56 384h40v-95.4L57.4 264H56c-30.9 0-56 25.1-56 56v10c0 30.9 25.1 54 56 54zM400 383.8v-.1l-144.2-141.4c-3.1-3-8-2.9-11 0l-11.1 11.3c-6.2 6.3-6.1 16.4 0 22.6L344 384h56v-.2zM576 384c30.9 0 64-23.1 64-54v-10c0-30.9-25.1-56-56-56h-1.4L544 288.6V384h32zM256 64h-85.9c-8.3 0-16.5 3.1-22.6 9.1L104 117v191.5l47.2 40.4c7.1 4.9 17.9 7.1 28.5 3.8l70.2-28c4.5-1.8 8.5-4.5 11.6-8.2L342.4 247c-10.3-8.5-17.9-19.3-22.2-31.7-2.1-5.9-2.9-11.8-2.7-17.7-10.1-9.7-16-23.4-15.4-37.9.6-13.9 6.7-27.2 16.8-36.7l65.1-59.5C374 56.3 361.7 64 349.1 64H256z"/></svg>
+                    <i class="fas fa-handshake text-yellow-400"></i>
                     <span class="text-white text-sm font-bold">500+</span>
-                    <span style="color:#D1D5DB" class="text-xs">Transaksi</span>
+                    <span class="text-gray-400 text-xs">Transaksi</span>
                 </div>
                 <div class="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700">
-                    <svg style="display:inline-block;vertical-align:middle;" width="14" height="16" viewBox="0 0 512 512" fill="#FBBF24"><path d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3z"/></svg>
+                    <i class="fas fa-shield-alt text-yellow-400"></i>
                     <span class="text-white text-sm font-bold">Sejak 2021</span>
                 </div>
                 <div class="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700">
-                    <svg style="display:inline-block;vertical-align:middle;" width="12" height="16" viewBox="0 0 384 512" fill="#FBBF24"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+                    <i class="fas fa-map-marker-alt text-yellow-400"></i>
                     <span class="text-white text-sm font-bold">25+ Kecamatan</span>
                 </div>
             </div>
@@ -527,10 +284,10 @@
             <a href="https://wa.me/6285776663195?text=Halo%20Bakul%20Emas%2C%20saya%20mau%20jual%20emas%20di%20Purwokerto.%20Bisa%20COD%20ke%20rumah%20saya%3F"
                target="_blank"
                class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-400 text-white font-black py-4 px-8 rounded-full text-lg shadow-[0_10px_30px_rgba(34,197,94,0.4)] transition transform hover:-translate-y-1">
-                <svg style="display:inline-block;vertical-align:middle;" width="24px" height="24px" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                <i class="fab fa-whatsapp text-2xl"></i>
                 Minta COD Sekarang — GRATIS
             </a>
-            <p style="color:#D1D5DB" class="text-xs mt-3"><svg style="display:inline-block;vertical-align:middle;margin-right:4px;" width="14" height="14" viewBox="0 0 512 512" fill="currentColor"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> Respon dalam hitungan menit • 08.00–21.00 setiap hari</p>
+            <p class="text-gray-500 text-xs mt-3"><i class="fas fa-clock mr-1"></i> Respon dalam hitungan menit • 08.00–21.00 setiap hari</p>
         </div>
     </header>
 
@@ -549,34 +306,34 @@
                 <!-- Purwokerto Utara -->
                 <div class="bg-gray-900 rounded-2xl p-5 card-hover border border-gray-800">
                     <div class="w-10 h-10 gold-gradient rounded-xl flex items-center justify-center mb-3 shadow-lg">
-                        <svg style="display:inline-block;vertical-align:middle;" width="16" height="16" viewBox="0 0 496 512" fill="#111827"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 448c-110.28 0-200-89.72-200-200S137.72 56 248 56s200 89.72 200 200-89.72 200-200 200zm-15.01-132.4l92.98-92.98c4.69-4.69 4.69-12.29 0-16.97L221.99 140.65c-4.69-4.69-12.29-4.69-16.97 0L112.04 233.63c-4.69 4.69-4.69 12.29 0 16.97l92.98 92.98c4.69 4.69 12.28 4.69 16.97.02z"/></svg>
+                        <i class="fas fa-compass text-gray-900 font-bold"></i>
                     </div>
                     <h3 class="text-white font-heading font-black text-base mb-2">Purwokerto Utara</h3>
-                    <p style="color:#C9D1D9" class="text-xs leading-relaxed">Bancarkembar, Bobosan, Grendeng, Karangwangkal, Pabuaran, Purwanegara, Sumampir</p>
+                    <p class="text-gray-400 text-xs leading-relaxed">Bancarkembar, Bobosan, Grendeng, Karangwangkal, Pabuaran, Purwanegara, Sumampir</p>
                 </div>
                 <!-- Purwokerto Selatan -->
                 <div class="bg-gray-900 rounded-2xl p-5 card-hover border border-gray-800">
                     <div class="w-10 h-10 gold-gradient rounded-xl flex items-center justify-center mb-3 shadow-lg">
-                        <svg style="display:inline-block;vertical-align:middle;transform:rotate(180deg);" width="16" height="16" viewBox="0 0 496 512" fill="#111827"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 448c-110.28 0-200-89.72-200-200S137.72 56 248 56s200 89.72 200 200-89.72 200-200 200zm-15.01-132.4l92.98-92.98c4.69-4.69 4.69-12.29 0-16.97L221.99 140.65c-4.69-4.69-12.29-4.69-16.97 0L112.04 233.63c-4.69 4.69-4.69 12.29 0 16.97l92.98 92.98c4.69 4.69 12.28 4.69 16.97.02z"/></svg>
+                        <i class="fas fa-compass text-gray-900 font-bold rotate-180"></i>
                     </div>
                     <h3 class="text-white font-heading font-black text-base mb-2">Purwokerto Selatan</h3>
-                    <p style="color:#C9D1D9" class="text-xs leading-relaxed">Berkoh, Karangklesem, Karangpucung, Tanjung, Purwokerto Kidul, Teluk</p>
+                    <p class="text-gray-400 text-xs leading-relaxed">Berkoh, Karangklesem, Karangpucung, Tanjung, Purwokerto Kidul, Teluk</p>
                 </div>
                 <!-- Purwokerto Timur -->
                 <div class="bg-gray-900 rounded-2xl p-5 card-hover border border-gray-800">
                     <div class="w-10 h-10 gold-gradient rounded-xl flex items-center justify-center mb-3 shadow-lg">
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#111827"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+                        <i class="fas fa-arrow-right text-gray-900 font-bold"></i>
                     </div>
                     <h3 class="text-white font-heading font-black text-base mb-2">Purwokerto Timur</h3>
-                    <p style="color:#C9D1D9" class="text-xs leading-relaxed">Arcawinangun, Mersi, Sokanegara, Kranji, Purwokerto Wetan, Rejasari, Kaliputih</p>
+                    <p class="text-gray-400 text-xs leading-relaxed">Arcawinangun, Mersi, Sokanegara, Kranji, Purwokerto Wetan, Rejasari, Kaliputih</p>
                 </div>
                 <!-- Purwokerto Barat -->
                 <div class="bg-gray-900 rounded-2xl p-5 card-hover border border-gray-800">
                     <div class="w-10 h-10 gold-gradient rounded-xl flex items-center justify-center mb-3 shadow-lg">
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#111827"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L201.4 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H201.4l55.7 54.5c9.8 9.3 10 24.8.4 34.3z"/></svg>
+                        <i class="fas fa-arrow-left text-gray-900 font-bold"></i>
                     </div>
                     <h3 class="text-white font-heading font-black text-base mb-2">Purwokerto Barat</h3>
-                    <p style="color:#C9D1D9" class="text-xs leading-relaxed">Bantarsoka, Kober, Pasirmuncang, Rejasari, Kedungwuluh, Pasir Kidul</p>
+                    <p class="text-gray-400 text-xs leading-relaxed">Bantarsoka, Kober, Pasirmuncang, Rejasari, Kedungwuluh, Pasir Kidul</p>
                 </div>
             </div>
 
@@ -586,7 +343,7 @@
                 <a href="https://wa.me/6285776663195?text=Halo%20Bakul%20Emas%2C%20saya%20di%20Purwokerto%20mau%20jual%20emas.%20Bisa%20COD%3F"
                    target="_blank"
                    class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition shadow-lg">
-                    <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> Chat WhatsApp Sekarang
+                    <i class="fab fa-whatsapp text-xl"></i> Chat WhatsApp Sekarang
                 </a>
             </div>
 
@@ -598,31 +355,31 @@
                 <p class="text-gray-500 text-sm">25 kecamatan terjangkau — tanyakan area Anda via WhatsApp</p>
             </div>
             <div class="flex flex-wrap justify-center gap-1">
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Purwokerto Utara</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Purwokerto Selatan</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Purwokerto Timur</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Purwokerto Barat</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Karanglewas</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Kembaran</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Sumbang</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Baturaden</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Kedungbanteng</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Sokaraja</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Patikraja</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Rawalo</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Kebasen</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Banyumas Kota</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Cilongok</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Ajibarang</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Pekuncen</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Gumelar</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Lumbir</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Wangon</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Purwojati</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Sumpiuh</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Kemranjen</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Tambak</span>
-                <span class="kecamatan-tag"><svg style="display:inline-block;vertical-align:middle;" width="10" height="12" viewBox="0 0 288 512" fill="currentColor"><path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22 7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06 3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0 64.47 0 144s64.47 144 144 144 144-64.47 144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68 0 6.63-5.37 12-12 12s-12-5.37-12-12c0-50.73 41.28-92 92-92 6.63 0 12 5.37 12 12s-5.37 12-12 12z"/></svg> Jatilawang</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Purwokerto Utara</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Purwokerto Selatan</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Purwokerto Timur</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Purwokerto Barat</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Karanglewas</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Kembaran</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Sumbang</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Baturaden</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Kedungbanteng</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Sokaraja</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Patikraja</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Rawalo</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Kebasen</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Banyumas Kota</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Cilongok</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Ajibarang</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Pekuncen</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Gumelar</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Lumbir</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Wangon</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Purwojati</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Sumpiuh</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Kemranjen</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Tambak</span>
+                <span class="kecamatan-tag"><i class="fas fa-map-pin"></i> Jatilawang</span>
             </div>
         </div>
     </section>
@@ -638,42 +395,42 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
                     <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 576 512" fill="#D97706"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg>
+                        <i class="fas fa-home text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 text-base mb-2">COD Gratis ke Rumah</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Kami yang datang ke rumah Anda di Purwokerto dan seluruh Banyumas. Tidak perlu keluar rumah, tidak ada ongkos.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
                     <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 512 512" fill="#D97706"><path d="M0 405.3V448c0 35.3 86 64 192 64s192-28.7 192-64v-42.7C342.7 434.4 273.6 448 192 448S41.3 434.4 0 405.3zM320 128c106 0 192-28.7 192-64S426 0 320 0 128 28.7 128 64s86 64 192 64zM0 300.4V352c0 35.3 86 64 192 64s192-28.7 192-64v-51.6c-41.3 34-116.9 51.6-192 51.6S41.3 334.4 0 300.4zm416 11.4V208c0 35.3-86 64-192 64S32 243.3 32 208v103.8C73.3 345.4 148.9 363 224 363s150.7-17.6 192-51.2z"/></svg>
+                        <i class="fas fa-coins text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 text-base mb-2">Harga Terbaik Realtime</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Harga mengikuti pasar emas internasional dan LM Antam hari ini. Transparan, tidak ada potongan tersembunyi.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
                     <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 640 512" fill="#D97706"><path d="M621.16 54.46C582.3 38.19 543.4 32 504.7 32c-123.42-.01-246.83 51.65-370.26 51.64-36.5 0-73-.96-109.34-4.23C11.8 78.14 0 87.94 0 101.98v317.06c0 12.39 9.79 22.47 22.19 22.47 3.54 0 7.17-.8 10.64-2.5 39.03-18.71 79.64-26.49 120.44-26.49 123.43 0 246.83 51.65 370.26 51.65 36.43 0 72.83-.96 109.14-4.24 13.43-1.26 25.33-11.06 25.33-25.11V76.93c0-11.53-8.81-21.43-20.8-21.47zM596 373.51c-29.53 3.41-59.74 5.27-90.07 5.27-106.48 0-212.95-35.19-319.42-49.23V104.82c29.52-3.41 59.73-5.27 90.07-5.27 106.48 0 212.95 35.19 319.42 49.24v224.72z"/></svg>
+                        <i class="fas fa-money-bill-wave text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 text-base mb-2">Bayar Tunai Langsung</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Sepakat harga, timbang di tempat, uang langsung cair saat itu juga. Tunai atau transfer.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
                     <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 512 512" fill="#D97706"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg>
+                        <i class="fas fa-recycle text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 text-base mb-2">Emas Rusak Diterima</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Patah, penyok, menghitam, hilang sebelah — tetap kami beli. Nilai dari kadar & berat, bukan penampilan.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
                     <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 576 512" fill="#D97706"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384v38.6L96.4 512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM576 379.6L419.6 512H512c35.3 0 64-28.7 64-64V379.6zM368 416c0-8.8 7.2-16 16-16H485L258 617.4c-3.6 2.7-8.7 3.3-12.9 1.5L51.3 541l-25.1-10.8c-8.2-3.5-12-12.9-8.5-21.1s12.9-12 21.1-8.5L64 511.2l194 83.7 192-224h-66c-8.8 0-16-7.2-16-16z"/></svg>
+                        <i class="fas fa-file-slash text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 text-base mb-2">Tanpa Surat Diterima</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">Tidak punya nota beli? Tidak masalah. Kami tetap menerima dengan harga wajar dan transparan.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
                     <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <svg style="display:inline-block;vertical-align:middle;" width="20px" height="20px" viewBox="0 0 512 512" fill="#D97706"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.7 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></svg>
+                        <i class="fas fa-shield-check text-yellow-600 text-xl"></i>
                     </div>
                     <h3 class="font-bold text-gray-900 text-base mb-2">Terpercaya Sejak 2021</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">500+ transaksi, rating 4.9/5. Warga Purwokerto dan Banyumas sudah banyak yang percaya.</p>
@@ -689,70 +446,70 @@
                 <h2 class="font-heading font-black text-2xl md:text-3xl text-white mb-3">
                     Emas Apa Saja yang Bisa Dijual di <span class="text-yellow-400">Purwokerto?</span>
                 </h2>
-                <p style="color:#D1D5DB">Semua jenis emas kami terima — kondisi apapun</p>
+                <p class="text-gray-400">Semua jenis emas kami terima — kondisi apapun</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 512 512" fill="#FBBF24"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm0 368c-88.2 0-160-71.8-160-160S167.8 96 256 96s160 71.8 160 160-71.8 160-160 160z"/></svg>
+                    <i class="fas fa-ring text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Cincin Emas</p>
-                        <p style="color:#A8B2BF" class="text-xs">Semua kadar</p>
+                        <p class="text-gray-500 text-xs">Semua kadar</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 576 512" fill="#FBBF24"><path d="M485.5 0L576 160H474.9L405.7 0h79.8zm-128 0l69.2 160H149.3L218.5 0h139zM90.5 0h79.8L101.1 160H0L90.5 0zM0 192h100.7l123 251.7c1.5 3.1-2.7 5.9-5 3.3L0 192zm148.2 0h279.6l-139.8 285.9L148.2 192zm204.1 255.7l123-251.7H576L357.3 446.9c-2.3 2.7-6.5-.1-5-3.2z"/></svg>
+                    <i class="fas fa-gem text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Kalung & Liontin</p>
-                        <p style="color:#A8B2BF" class="text-xs">Rusak pun diterima</p>
+                        <p class="text-gray-500 text-xs">Rusak pun diterima</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 640 512" fill="#FBBF24"><path d="M320 0c-17.7 0-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V96c0-17.7-14.3-32-32-32s-32 14.3-32 32V336c0 1.5 0 3.1 .1 4.6L67.6 283c-16-15.2-41.3-14.6-56.6 1.4s-14.6 41.3 1.4 56.6L124.8 448c43.1 41.1 100.4 64 160 64H304c97.2 0 176-78.8 176-176V128c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V64c0-17.7-14.3-32-32-32s-32 14.3-32 32V240c0 8.8-7.2 16-16 16s-16-7.2-16-16V32c0-17.7-14.3-32-32-32z"/></svg>
+                    <i class="fas fa-hand-sparkles text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Gelang Emas</p>
-                        <p style="color:#A8B2BF" class="text-xs">Baru maupun lama</p>
+                        <p class="text-gray-500 text-xs">Baru maupun lama</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 576 512" fill="#FBBF24"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/></svg>
+                    <i class="fas fa-star text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Anting Emas</p>
-                        <p style="color:#A8B2BF" class="text-xs">Hilang sebelah OK</p>
+                        <p class="text-gray-500 text-xs">Hilang sebelah OK</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 512 512" fill="#FBBF24"><path d="M239.1 6.3l-208 78c-18.7 7-31.1 25-31.1 45v225.1c0 18.2 10.3 34.8 26.5 42.9l208 104c13.5 6.8 29.4 6.8 42.9 0l208-104c16.3-8.1 26.5-24.8 26.5-42.9V129.3c0-20-12.4-37.9-31.1-45l-208-78C262 2.2 250 2.2 239.1 6.3zM256 68.4l192 72v1.1l-192 78-192-78v-1.1l192-72zm32 356V275.5l160-65v133.9l-160 80z"/></svg>
+                    <i class="fas fa-cube text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Logam Mulia Antam/UBS</p>
-                        <p style="color:#A8B2BF" class="text-xs">Semua ukuran</p>
+                        <p class="text-gray-500 text-xs">Semua ukuran</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 576 512" fill="#FBBF24"><path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-47 96l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 373.8C37.4 369.8 32 361.3 32 352s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2z"/></svg>
+                    <i class="fas fa-layer-group text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Emas Batangan</p>
-                        <p style="color:#A8B2BF" class="text-xs">Mini maupun besar</p>
+                        <p class="text-gray-500 text-xs">Mini maupun besar</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 512 512" fill="#FBBF24"><path d="M0 405.3V448c0 35.3 86 64 192 64s192-28.7 192-64v-42.7C342.7 434.4 273.6 448 192 448S41.3 434.4 0 405.3zM320 128c106 0 192-28.7 192-64S426 0 320 0 128 28.7 128 64s86 64 192 64zM0 300.4V352c0 35.3 86 64 192 64s192-28.7 192-64v-51.6c-41.3 34-116.9 51.6-192 51.6S41.3 334.4 0 300.4zm416 11.4V208c0 35.3-86 64-192 64S32 243.3 32 208v103.8C73.3 345.4 148.9 363 224 363s150.7-17.6 192-51.2z"/></svg>
+                    <i class="fas fa-coins text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Koin Emas</p>
-                        <p style="color:#A8B2BF" class="text-xs">Lama maupun baru</p>
+                        <p class="text-gray-500 text-xs">Lama maupun baru</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 512 512" fill="#FBBF24"><path d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.907-25.541-1.839-35.51l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.313l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"/></svg>
+                    <i class="fas fa-history text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Emas Antik/Lama</p>
-                        <p style="color:#A8B2BF" class="text-xs">Warisan keluarga</p>
+                        <p class="text-gray-500 text-xs">Warisan keluarga</p>
                     </div>
                 </div>
                 <div class="bg-gray-800 rounded-xl p-4 border border-gray-700 flex items-center gap-3">
-                    <svg style="display:inline-block;vertical-align:middle;" width="18px" height="18px" viewBox="0 0 512 512" fill="#FBBF24"><path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.3c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.4z"/></svg>
+                    <i class="fas fa-tools text-yellow-400 text-lg w-6"></i>
                     <div>
                         <p class="text-white font-semibold text-sm">Emas Rusak/Patah</p>
-                        <p style="color:#A8B2BF" class="text-xs">Kondisi apapun</p>
+                        <p class="text-gray-500 text-xs">Kondisi apapun</p>
                     </div>
                 </div>
             </div>
@@ -806,7 +563,7 @@
                 <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center bg-gray-50 hover:bg-yellow-50 transition" onclick="toggleFaq(this)">
                         <span class="font-bold text-gray-900 pr-4">Di mana saja COD jual emas di Purwokerto?</span>
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#F59E0B"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                        <i class="fas fa-chevron-down text-yellow-500 flex-shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-5 text-gray-600 leading-relaxed border-t border-gray-100 bg-white">
                         <p>Kami COD ke seluruh kecamatan di Purwokerto: <strong>Purwokerto Utara</strong> (Bancarkembar, Bobosan, Grendeng, dll), <strong>Purwokerto Selatan</strong> (Berkoh, Karangklesem, Teluk, dll), <strong>Purwokerto Timur</strong> (Arcawinangun, Mersi, Sokanegara, dll), dan <strong>Purwokerto Barat</strong> (Bantarsoka, Kober, Kedungwuluh, dll). Plus semua kecamatan lain di Banyumas Raya.</p>
@@ -816,7 +573,7 @@
                 <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center bg-gray-50 hover:bg-yellow-50 transition" onclick="toggleFaq(this)">
                         <span class="font-bold text-gray-900 pr-4">Berapa harga beli emas hari ini di Purwokerto?</span>
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#F59E0B"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                        <i class="fas fa-chevron-down text-yellow-500 flex-shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-5 text-gray-600 leading-relaxed border-t border-gray-100 bg-white">
                         <p>Harga emas kami mengikuti <strong>harga pasar realtime</strong> — berdasarkan harga LM Antam dan harga spot internasional. Karena berubah setiap hari, hubungi kami via WhatsApp untuk penawaran harga terbaik hari ini. Admin respon cepat dalam menit!</p>
@@ -826,7 +583,7 @@
                 <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center bg-gray-50 hover:bg-yellow-50 transition" onclick="toggleFaq(this)">
                         <span class="font-bold text-gray-900 pr-4">Emas tanpa surat bisa dijual di Purwokerto?</span>
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#F59E0B"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                        <i class="fas fa-chevron-down text-yellow-500 flex-shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-5 text-gray-600 leading-relaxed border-t border-gray-100 bg-white">
                         <p><strong>Ya, bisa!</strong> Kami menerima emas tanpa nota/surat pembelian di seluruh wilayah Purwokerto dan Banyumas. Banyak toko memberi potongan besar untuk kondisi ini, tapi kami tetap menghargai emas Anda secara wajar dan transparan mengikuti harga pasar hari ini.</p>
@@ -836,7 +593,7 @@
                 <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center bg-gray-50 hover:bg-yellow-50 transition" onclick="toggleFaq(this)">
                         <span class="font-bold text-gray-900 pr-4">Emas rusak atau patah diterima di Purwokerto?</span>
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#F59E0B"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                        <i class="fas fa-chevron-down text-yellow-500 flex-shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-5 text-gray-600 leading-relaxed border-t border-gray-100 bg-white">
                         <p><strong>Tentu saja!</strong> Kami menerima segala kondisi emas di Purwokerto: perhiasan patah, rusak, menghitam, anting hilang sebelah, cincin penyok, dan kondisi apapun lainnya. Nilai emas tidak ditentukan dari kondisi fisiknya, melainkan dari <strong>kadar dan beratnya</strong>. Jadi semua tetap bisa jadi uang!</p>
@@ -846,7 +603,7 @@
                 <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center bg-gray-50 hover:bg-yellow-50 transition" onclick="toggleFaq(this)">
                         <span class="font-bold text-gray-900 pr-4">Apakah COD ke Karanglewas, Kembaran, Sumbang, Baturaden bisa?</span>
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#F59E0B"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                        <i class="fas fa-chevron-down text-yellow-500 flex-shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-5 text-gray-600 leading-relaxed border-t border-gray-100 bg-white">
                         <p>Ya! Selain 4 kecamatan utama Purwokerto, kami juga COD ke <strong>Karanglewas, Kembaran, Sumbang, Baturaden, Kedungbanteng, Sokaraja, Patikraja, Rawalo, Kebasen, Banyumas Kota, Cilongok, Ajibarang, Pekuncen, Wangon, Sumpiuh, Kemranjen, Tambak, Purwojati, Gumelar, Lumbir, Jatilawang</strong>, dan sekitarnya. Hubungi kami untuk konfirmasi area Anda.</p>
@@ -856,7 +613,7 @@
                 <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
                     <button class="faq-btn w-full text-left px-6 py-5 flex justify-between items-center bg-gray-50 hover:bg-yellow-50 transition" onclick="toggleFaq(this)">
                         <span class="font-bold text-gray-900 pr-4">Seberapa cepat proses pembayaran setelah harga sepakat?</span>
-                        <svg style="display:inline-block;vertical-align:middle;" width="14" height="14" viewBox="0 0 448 512" fill="#F59E0B"><path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"/></svg>
+                        <i class="fas fa-chevron-down text-yellow-500 flex-shrink-0 transition-transform duration-300"></i>
                     </button>
                     <div class="faq-answer hidden px-6 py-5 text-gray-600 leading-relaxed border-t border-gray-100 bg-white">
                         <p>Sangat cepat! Begitu penimbangan selesai dan harga disepakati, pembayaran dilakukan <strong>langsung di tempat</strong> — tunai atau transfer bank saat itu juga. Tidak ada menunggu, tidak ada proses panjang. Simpel dan transparan.</p>
@@ -870,7 +627,7 @@
                 <a href="https://wa.me/6285776663195?text=Halo%20Bakul%20Emas%2C%20saya%20mau%20tanya%20tentang%20jual%20emas%20di%20Purwokerto"
                    target="_blank"
                    class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-lg transition transform hover:-translate-y-1 shadow-xl">
-                    <svg style="display:inline-block;vertical-align:middle;" width="24px" height="24px" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> Chat WhatsApp Sekarang
+                    <i class="fab fa-whatsapp text-2xl"></i> Chat WhatsApp Sekarang
                 </a>
             </div>
         </div>
@@ -915,39 +672,39 @@
             <h2 class="font-heading font-black text-white text-2xl md:text-3xl mb-4">
                 Siap Jual Emas di <span class="text-yellow-400">Purwokerto</span>?
             </h2>
-            <p style="color:#E5E7EB" class="mb-8">Chat sekarang, tim kami langsung respons dan atur jadwal COD ke rumah Anda.</p>
+            <p class="text-gray-300 mb-8">Chat sekarang, tim kami langsung respons dan atur jadwal COD ke rumah Anda.</p>
             <a href="https://wa.me/6285776663195?text=Halo%20Bakul%20Emas%2C%20saya%20mau%20jual%20emas%20di%20Purwokerto.%20Bisa%20COD%20ke%20rumah%20saya%3F"
                target="_blank"
                class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-400 text-white font-black py-5 px-10 rounded-full text-xl shadow-[0_10px_30px_rgba(34,197,94,0.4)] transition transform hover:-translate-y-1">
-                <svg style="display:inline-block;vertical-align:middle;" width="30px" height="30px" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                <i class="fab fa-whatsapp text-3xl"></i>
                 Chat WhatsApp Sekarang
             </a>
-            <p style="color:#C9D1D9" class="text-sm mt-4"><svg style="display:inline-block;vertical-align:middle;margin-right:4px;" width="14" height="14" viewBox="0 0 512 512" fill="currentColor"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg> Buka setiap hari 08.00–21.00 WIB</p>
+            <p class="text-gray-500 text-sm mt-4"><i class="fas fa-clock mr-1"></i> Buka setiap hari 08.00–21.00 WIB</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-12 border-t border-gray-800" style="color:#D1D5DB">
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
         <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
                 <h4 class="text-white font-heading font-black text-xl mb-4 flex items-center gap-2">
-                    <svg style="display:inline-block;vertical-align:middle;" width="16" height="16" viewBox="0 0 512 512" fill="#F59E0B"><path d="M0 405.3V448c0 35.3 86 64 192 64s192-28.7 192-64v-42.7C342.7 434.4 273.6 448 192 448S41.3 434.4 0 405.3zM320 128c106 0 192-28.7 192-64S426 0 320 0 128 28.7 128 64s86 64 192 64zM0 300.4V352c0 35.3 86 64 192 64s192-28.7 192-64v-51.6c-41.3 34-116.9 51.6-192 51.6S41.3 334.4 0 300.4zm416 11.4V208c0 35.3-86 64-192 64S32 243.3 32 208v103.8C73.3 345.4 148.9 363 224 363s150.7-17.6 192-51.2z"/></svg> BAKUL EMAS
+                    <i class="fas fa-coins text-yellow-500"></i> BAKUL EMAS
                 </h4>
                 <p class="text-sm leading-relaxed mb-4">Mitra terpercaya jual beli emas di Purwokerto dan Banyumas Raya. Layanan jujur, timbangan akurat, harga bersaing. Terpercaya sejak 2021.</p>
                 <div class="flex gap-3">
-                    <a href="https://wa.me/6285776663195" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-green-500 transition"><svg style="display:inline-block;vertical-align:middle;" width="18" height="18" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
+                    <a href="https://wa.me/6285776663195" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-green-500 transition"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div>
                 <h4 class="text-white font-bold text-base mb-4 border-b border-gray-700 pb-2">Area Layanan COD</h4>
-                <p style="color:#C9D1D9" class="text-sm leading-relaxed">Purwokerto Utara, Selatan, Timur, Barat · Karanglewas · Kembaran · Sumbang · Baturaden · Kedungbanteng · Sokaraja · Patikraja · Rawalo · Kebasen · Banyumas · Cilongok · Ajibarang · Pekuncen · Wangon · Sumpiuh · Kemranjen · Tambak · Purwojati · Gumelar · Lumbir · Jatilawang</p>
+                <p class="text-sm leading-relaxed text-gray-400">Purwokerto Utara, Selatan, Timur, Barat · Karanglewas · Kembaran · Sumbang · Baturaden · Kedungbanteng · Sokaraja · Patikraja · Rawalo · Kebasen · Banyumas · Cilongok · Ajibarang · Pekuncen · Wangon · Sumpiuh · Kemranjen · Tambak · Purwojati · Gumelar · Lumbir · Jatilawang</p>
             </div>
             <div>
                 <h4 class="text-white font-bold text-base mb-4 border-b border-gray-700 pb-2">Link Cepat</h4>
                 <div class="flex flex-col gap-2 text-sm">
-                    <a href="https://bakulemas.com/" style="color:#C9D1D9" class="hover:text-yellow-400 transition"><svg style="display:inline-block;vertical-align:middle;margin-right:8px;" width="18" height="16" viewBox="0 0 576 512" fill="#F59E0B"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg> Beranda</a>
-                    <a href="https://bakulemas.com/blog/" style="color:#C9D1D9" class="hover:text-yellow-400 transition"><svg style="display:inline-block;vertical-align:middle;margin-right:8px;" width="16" height="16" viewBox="0 0 576 512" fill="#F59E0B"><path d="M552 64H88c-13.3 0-24 10.7-24 24v8H24C10.7 96 0 106.7 0 120v292c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V88c0-13.3-10.7-24-24-24zM64 412c0 8.8-7.2 16-16 16s-16-7.2-16-16V128h32v284zm480 0c0 8.8-7.2 16-16 16H95.9c.1-1.3.1-2.6.1-4V112h448v300z"/></svg> Blog & Tips Emas</a>
-                    <a href="https://wa.me/6285776663195" target="_blank" style="color:#C9D1D9" class="hover:text-yellow-400 transition"><svg style="display:inline-block;vertical-align:middle;margin-right:8px;" width="18" height="18" viewBox="0 0 448 512" fill="#4ADE80"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> WhatsApp Langsung</a>
+                    <a href="https://bakulemas.com/" class="text-gray-400 hover:text-yellow-400 transition"><i class="fas fa-home mr-2 text-yellow-500"></i> Beranda</a>
+                    <a href="https://bakulemas.com/blog/" class="text-gray-400 hover:text-yellow-400 transition"><i class="fas fa-newspaper mr-2 text-yellow-500"></i> Blog & Tips Emas</a>
+                    <a href="https://wa.me/6285776663195" target="_blank" class="text-gray-400 hover:text-yellow-400 transition"><i class="fab fa-whatsapp mr-2 text-green-400"></i> WhatsApp Langsung</a>
                 </div>
             </div>
         </div>
@@ -960,19 +717,19 @@
     <a href="https://wa.me/6285776663195?text=Halo%20Bakul%20Emas%2C%20saya%20mau%20jual%20emas%20di%20Purwokerto.%20Bisa%20COD%3F"
        target="_blank"
        class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full shadow-[0_10px_20px_rgba(34,197,94,0.4)] flex items-center justify-center text-3xl hover:bg-green-600 hover:scale-110 transition-all z-40 animate-bounce">
-        <svg style="display:inline-block;vertical-align:middle;" width="18" height="18" viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
         function toggleFaq(btn) {
             const answer = btn.nextElementSibling;
-            const icon = btn.querySelector('svg');
+            const icon = btn.querySelector('i');
             const isOpen = !answer.classList.contains('hidden');
             document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.faq-btn svg').forEach(el => el.style.transform = '');
+            document.querySelectorAll('.faq-btn i').forEach(el => el.style.transform = 'rotate(0deg)');
             if (!isOpen) {
                 answer.classList.remove('hidden');
-                if (icon) icon.style.transform = 'rotate(180deg)';
+                icon.style.transform = 'rotate(180deg)';
             }
         }
     </script>

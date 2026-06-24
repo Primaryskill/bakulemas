@@ -18,6 +18,11 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://bakulemas.com/">
+    <!-- DNS prefetch untuk Supabase -->
+    <link rel="dns-prefetch" href="https://ucgqqwzoxxnwraqxszcs.supabase.co">
+    <link rel="preconnect" href="https://ucgqqwzoxxnwraqxszcs.supabase.co">
+    <!-- Theme color untuk mobile browser -->
+    <meta name="theme-color" content="#111827">
 
     <!-- Open Graph (Facebook, WhatsApp Preview) -->
     <meta property="og:type" content="website">
@@ -173,11 +178,23 @@
     }
     </script>
     <!-- ===== END SEO META TAGS ===== -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Preconnect untuk resource kritis -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts dengan display=swap -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome defer agar tidak blokir render -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+
+    <!-- Tailwind CDN dengan config inline -->
     <script>
-        tailwind.config = {
+        // Config Tailwind harus dideklarasikan sebelum script Tailwind
+        window.tailwind = window.tailwind || {};
+        window.__tailwindConfig = {
             theme: {
                 extend: {
                     fontFamily: {
@@ -195,9 +212,17 @@
                     }
                 }
             }
-        }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = window.__tailwindConfig;
     </script>
     <style>
+        /* Font fallback sebelum Google Fonts load */
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .font-heading { font-family: 'Montserrat', system-ui, sans-serif; }
+
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
@@ -209,6 +234,13 @@
         .marquee-container { overflow: hidden; white-space: nowrap; }
         .marquee-content { display: inline-block; animation: marquee 15s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* Optimasi: icon placeholder saat FontAwesome belum load */
+        .fas, .fab, .far { display: inline-block; min-width: 1em; }
+
+        /* Optimasi: reduce layout shift */
+        #lp-hero-img { aspect-ratio: 1/1; background: #1f2937; }
+        #testi-carousel { min-height: 180px; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
@@ -299,7 +331,7 @@
                         </div>
                     </div>
                     <div class="relative hidden md:block">
-                        <img id="lp-hero-img" src="https://placehold.co/600x600/FBBF24/111827?text=Uang+Terkumpul" alt="Bakul Emas" class="relative z-10 w-full rounded-3xl shadow-2xl border-4 border-gray-800 object-cover aspect-square">
+                        <img id="lp-hero-img" src="https://placehold.co/600x600/FBBF24/111827?text=Uang+Terkumpul" alt="Bakul Emas Purwokerto - Jual Emas COD" loading="lazy" decoding="async" class="relative z-10 w-full rounded-3xl shadow-2xl border-4 border-gray-800 object-cover aspect-square">
                     </div>
                 </div>
             </header>
@@ -963,14 +995,15 @@
         async function fetchAppContent() {
             showLoader('Memuat konten...');
             try {
-                // Ambil konten (baris id=1)
-                const kontenData = await sb('konten?id=eq.1&select=*');
+                // Fetch paralel untuk lebih cepat
+                const [kontenData, testiData] = await Promise.all([
+                    sb('konten?id=eq.1&select=*'),
+                    sb('testimoni?select=id,nama,lokasi,avatar,teks&order=created_at.desc&limit=20')
+                ]);
+
                 if (kontenData && kontenData.length > 0) {
                     APP_DATA.konten = { ...APP_DATA.konten, ...kontenData[0] };
                 }
-
-                // Ambil testimoni
-                const testiData = await sb('testimoni?select=*&order=created_at.desc');
                 if (testiData) APP_DATA.testimoni = testiData;
 
             } catch (e) {
@@ -1022,7 +1055,7 @@
             }
             APP_DATA.testimoni.forEach(t => {
                 const imgTag = t.avatar
-                    ? `<img src="${t.avatar}" alt="Avatar" class="w-12 h-12 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0">`
+                    ? `<img src="${t.avatar}" alt="Avatar ${t.nama}" class="w-12 h-12 rounded-full object-cover border-2 border-yellow-400 flex-shrink-0" loading="lazy" decoding="async">`
                     : `<div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl uppercase flex-shrink-0">${t.nama.charAt(0)}</div>`;
                 const card = document.createElement('div');
                 card.className = 'min-w-full md:min-w-[calc(50%-12px)] lg:min-w-[calc(33.333%-16px)] snap-center bg-white p-6 rounded-2xl border border-gray-100 shadow-md relative';

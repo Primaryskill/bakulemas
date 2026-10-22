@@ -5,10 +5,16 @@ from datetime import date
 BASE_URL = "https://bakulemas.com"
 BLOG_DIR = "./blog"  # sesuaikan dengan lokasi folder blog di komputer kamu
 
+# PENTING: server (Cloudflare) menyajikan URL TANPA ekstensi .html dan TANPA
+# slash di belakang (versi .html / versi slash di-redirect 308 ke versi bersih).
+# Sitemap WAJIB berisi URL final yang balas 200, jadi semua loc di bawah
+# memakai bentuk extensionless.
+
 # Halaman utama (non-blog)
 static_pages = [
-    {"loc": "/", "priority": "1.0"},
-    {"loc": "/blog/", "priority": "0.8"},
+    {"loc": "/", "priority": "1.0", "changefreq": "weekly"},
+    {"loc": "/purwokerto", "priority": "0.95", "changefreq": "weekly"},
+    {"loc": "/blog/", "priority": "0.9", "changefreq": "weekly"},
 ]
 
 # Auto-detect semua artikel blog
@@ -20,8 +26,9 @@ for f in blog_files:
         continue  # sudah dihandle di static_pages
     slug = filename.replace(".html", "")
     blog_pages.append({
-        "loc": f"/blog/{slug}.html",
-        "priority": "0.7"
+        "loc": f"/blog/{slug}",
+        "priority": "0.8",
+        "changefreq": "monthly",
     })
 
 # Gabungkan semua halaman
@@ -36,6 +43,7 @@ for page in all_pages:
     lines.append("  <url>")
     lines.append(f"    <loc>{BASE_URL}{page['loc']}</loc>")
     lines.append(f"    <lastmod>{today}</lastmod>")
+    lines.append(f"    <changefreq>{page['changefreq']}</changefreq>")
     lines.append(f"    <priority>{page['priority']}</priority>")
     lines.append("  </url>")
 

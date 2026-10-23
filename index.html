@@ -340,6 +340,9 @@
                             <button onclick="scrollToForm()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-extrabold py-4 px-8 rounded-full text-lg transition transform hover:-translate-y-1 shadow-xl flex items-center justify-center gap-2">
                                 <i class="fab fa-whatsapp text-2xl"></i> Cek Harga Sekarang
                             </button>
+                            <a href="tel:+6285776663195" class="js-phone-tel border-2 border-gray-700 hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-full text-lg transition flex items-center justify-center gap-2">
+                                <i class="fas fa-phone text-yellow-400"></i> <span class="js-phone-text">0857-7666-3195</span>
+                            </a>
                         </div>
                         <div class="grid grid-cols-3 gap-4 border-t border-gray-800 pt-6 mt-6">
                             <div>
@@ -540,6 +543,7 @@
                                 <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-green-400"><i class="fab fa-whatsapp"></i></div><span class="font-medium">Admin Fast Respon</span></div>
                                 <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-blue-400"><i class="fas fa-shield-alt"></i></div><span class="font-medium">Transaksi Dijamin Aman 100%</span></div>
                                 <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-yellow-400"><i class="fas fa-motorcycle"></i></div><span class="font-medium" id="lp-form-area-text">Melayani Area Banyumas Raya</span></div>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-green-400"><i class="fas fa-phone"></i></div><a href="tel:+6285776663195" class="js-phone-tel font-bold text-yellow-400 hover:text-yellow-300">Telp/WA: <span class="js-phone-text">0857-7666-3195</span></a></div>
                             </div>
                         </div>
                         <div class="p-10 md:w-7/12">
@@ -728,6 +732,7 @@
                         <ul class="space-y-4 text-sm">
                             <li class="flex items-start gap-3"><i class="fas fa-map-marker-alt mt-1 text-yellow-500"></i><span id="lp-footer-alamat">Alamat akan dimuat...</span></li>
                             <li class="flex items-start gap-3"><i class="fas fa-clock mt-1 text-yellow-500"></i><span id="lp-footer-jam">Jam operasional dimuat...</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-phone mt-1 text-yellow-500"></i><span>Telepon / WhatsApp: <a href="tel:+6285776663195" class="js-phone-tel font-bold text-white hover:text-yellow-400"><span class="js-phone-text">0857-7666-3195</span></a></span></li>
                         </ul>
                         <a id="lp-footer-maps" href="#" target="_blank" class="inline-block mt-4 text-yellow-500 hover:text-yellow-400 text-sm font-bold bg-gray-800 px-4 py-2 rounded-lg transition"><i class="fas fa-map-marked-alt mr-1"></i> Buka Google Maps</a>
                     </div>
@@ -1128,6 +1133,13 @@
             document.getElementById('lp-footer-maps').href = k.footer_maps || "#";
             document.getElementById('lp-footer-wa').href = `https://wa.me/${k.wa_number}`;
             ['lp-nav-tel','lp-menu-tel'].forEach(id => { const el = document.getElementById(id); if (el && k.wa_number) el.href = `tel:+${k.wa_number}`; });
+            if (k.wa_number) {
+                const digits = String(k.wa_number).replace(/\D/g, '');
+                const local = digits.startsWith('62') ? '0' + digits.slice(2) : digits;
+                const pretty = local.replace(/^(\d{4})(\d{4})(\d+)$/, '$1-$2-$3');
+                document.querySelectorAll('.js-phone-text').forEach(el => el.textContent = pretty);
+                document.querySelectorAll('.js-phone-tel').forEach(el => el.href = 'tel:+' + (digits.startsWith('62') ? digits : '62' + digits.replace(/^0/, '')));
+            }
 
             renderTestiCarousel();
         }

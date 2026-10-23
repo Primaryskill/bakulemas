@@ -118,6 +118,126 @@
         .tip-box { background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; }
         .warning-box { background: #FEF2F2; border-left: 4px solid #EF4444; padding: 1rem 1.25rem; border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; }
     </style>
+
+    <!-- Tema gelap Bakulemas (override palet terang Tailwind; aksen emas dipertahankan) -->
+    <style id="bowo-dark-theme">
+    :root{color-scheme:dark}
+    html{background-color:#0a0a0c}
+    body{background-color:#0a0a0c!important;color:#e5e7eb}
+    /* Latar: halaman & seksi */
+    .bg-gray-50{background-color:#101014!important}
+    .bg-white{background-color:#17181f!important}
+    .bg-gray-100{background-color:#1e1f27!important}
+    .bg-gray-200{background-color:#26272f!important}
+    .bg-gray-300{background-color:#2f303a!important}
+    .hover\:bg-gray-50:hover{background-color:#26272f!important}
+    .hover\:bg-gray-200:hover{background-color:#2f303a!important}
+    .hover\:bg-red-50:hover{background-color:#2a1215!important}
+    /* Seksi aksen hangat -> cokelat-emas gelap */
+    .bg-yellow-50,.bg-amber-50{background-color:#1d1807!important}
+    .bg-yellow-100{background-color:#292006!important}
+    .hover\:bg-yellow-50:hover{background-color:#292006!important}
+    /* Gradasi pastel kartu blog -> rona gelap sewarna */
+    .from-yellow-100,.from-amber-100{--tw-gradient-from:#292006 0%!important;--tw-gradient-to:#29200600 100%!important}
+    .from-blue-100{--tw-gradient-from:#101c3f 0%!important;--tw-gradient-to:#101c3f00 100%!important}
+    .from-emerald-100,.from-green-100{--tw-gradient-from:#052e22 0%!important;--tw-gradient-to:#052e2200 100%!important}
+    .from-orange-100{--tw-gradient-from:#331305 0%!important;--tw-gradient-to:#33130500 100%!important}
+    .from-purple-100{--tw-gradient-from:#2a0a45 0%!important;--tw-gradient-to:#2a0a4500 100%!important}
+    .from-red-100{--tw-gradient-from:#330b0e 0%!important;--tw-gradient-to:#330b0e00 100%!important}
+    .to-yellow-200,.to-amber-200{--tw-gradient-to:#453607 100%!important}
+    .to-yellow-300{--tw-gradient-to:#57420a 100%!important}
+    .to-blue-200{--tw-gradient-to:#1e3a8a 100%!important}
+    .to-indigo-200{--tw-gradient-to:#3730a3 100%!important}
+    .to-green-200{--tw-gradient-to:#065f46 100%!important}
+    .to-teal-200{--tw-gradient-to:#115e59 100%!important}
+    .to-purple-200{--tw-gradient-to:#581c87 100%!important}
+    .to-rose-200{--tw-gradient-to:#881337 100%!important}
+    /* Teks abu -> terang */
+    .text-gray-900{color:#f9fafb!important}
+    .text-gray-800{color:#f3f4f6!important}
+    .text-gray-700{color:#e5e7eb!important}
+    .text-gray-600{color:#c7ccd6!important}
+    .text-gray-500{color:#a7aebc!important}
+    /* Di atas latar emas terang, teks tetap gelap (kontras) */
+    .bg-yellow-400.text-gray-900,.bg-yellow-500.text-gray-900,.bg-yellow-600.text-gray-900,
+    .bg-yellow-400 .text-gray-900,.bg-yellow-500 .text-gray-900,.bg-yellow-600 .text-gray-900{color:#111827!important}
+    .bg-yellow-400 .text-gray-800,.bg-yellow-500 .text-gray-800,.bg-yellow-600 .text-gray-800{color:#1f2937!important}
+    .bg-yellow-400 .text-gray-700,.bg-yellow-500 .text-gray-700,.bg-yellow-600 .text-gray-700{color:#374151!important}
+    .bg-yellow-400 .text-gray-600,.bg-yellow-500 .text-gray-600,.bg-yellow-600 .text-gray-600{color:#4b5563!important}
+    .bg-yellow-400 .text-gray-500,.bg-yellow-500 .text-gray-500,.bg-yellow-600 .text-gray-500{color:#6b7280!important}
+    .bg-yellow-400 .text-yellow-700,.bg-yellow-500 .text-yellow-700,.bg-yellow-600 .text-yellow-700{color:#713f12!important}
+    /* Aksen yang terlalu pekat di latar gelap -> cerahkan */
+    .text-yellow-600{color:#eab308!important}
+    .text-yellow-700{color:#facc15!important}
+    .text-yellow-800{color:#fde047!important}
+    .text-yellow-900{color:#fde047!important}
+    .text-amber-600{color:#fbbf24!important}
+    .text-amber-700{color:#fbbf24!important}
+    .text-green-600{color:#4ade80!important}
+    .text-green-700{color:#4ade80!important}
+    .text-red-600{color:#f87171!important}
+    .text-red-700{color:#f87171!important}
+    .text-red-800{color:#fca5a5!important}
+    .text-red-900{color:#fca5a5!important}
+    .text-blue-600{color:#60a5fa!important}
+    .text-blue-700{color:#60a5fa!important}
+    .text-blue-800{color:#93c5fd!important}
+    /* Garis tepi */
+    .border-gray-50{border-color:#26272f!important}
+    .border-gray-100{border-color:#26272f!important}
+    .border-gray-200{border-color:#2f303a!important}
+    .border-gray-300{border-color:#3d3e49!important}
+    /* Bayangan lebih pekat agar kartu terasa terangkat di latar gelap */
+    .shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0/.5)!important}
+    .shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0/.55),0 2px 4px -2px rgb(0 0 0/.55)!important}
+    .shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0/.6),0 4px 6px -4px rgb(0 0 0/.6)!important}
+    .shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0/.65),0 8px 10px -6px rgb(0 0 0/.65)!important}
+    .shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0/.75)!important}
+    /* Latar rona lain (badge/kartu lembut) -> rona gelap sewarna */
+    .bg-red-50{background-color:#2a1215!important}
+    .bg-green-50,.bg-emerald-50{background-color:#0a211a!important}
+    .bg-orange-50{background-color:#2a1503!important}
+    .bg-blue-50{background-color:#0e1a33!important}
+    .bg-purple-50{background-color:#1e0b33!important}
+    .bg-indigo-50{background-color:#171238!important}
+    .bg-blue-100{background-color:#172554!important}
+    .bg-purple-100{background-color:#2a0a45!important}
+    .bg-green-100{background-color:#052e22!important}
+    .border-yellow-200{border-color:#a16207!important}
+    .border-yellow-300,.border-amber-300{border-color:#a16207!important}
+    .border-orange-200{border-color:#9a3412!important}
+    .border-red-100{border-color:#7f1d1d!important}
+    .border-blue-100{border-color:#1e3a8a!important}
+    .text-orange-600,.text-orange-700{color:#fb923c!important}
+    .text-orange-800{color:#fdba74!important}
+    .text-purple-600,.text-purple-700{color:#c084fc!important}
+    .text-indigo-600,.text-indigo-700{color:#a5b4fc!important}
+    .text-emerald-600,.text-emerald-700{color:#34d399!important}
+    .text-blue-500{color:#60a5fa!important}
+    .hover\:text-yellow-600:hover{color:#facc15!important}
+    .hover\:text-yellow-700:hover{color:#fde047!important}
+    .hover\:text-gray-900:hover{color:#f9fafb!important}
+    /* Tipografi isi artikel (kelas kustom .prose-*) */
+    .prose h2,.prose-article h2,.prose-emas h2,.prose-custom h2,.prose-content h2{color:#f9fafb!important}
+    .prose h3,.prose-article h3,.prose-emas h3,.prose-custom h3,.prose-content h3{color:#f3f4f6!important}
+    .prose p,.prose-article p,.prose-emas p,.prose-custom p,.prose-content p,
+    .prose ul li,.prose-article ul li,.prose-emas ul li,.prose-custom ul li,.prose-content ul li,
+    .prose ol li,.prose-article ol li,.prose-emas ol li,.prose-custom ol li,.prose-content ol li{color:#d1d5db!important}
+    .prose strong,.prose-article strong,.prose-emas strong,.prose-custom strong,.prose-content strong{color:#f9fafb!important}
+    .prose a,.prose-article a,.prose-emas a,.prose-custom a,.prose-content a{color:#fbbf24!important}
+    /* Kotak khusus artikel */
+    .tip-box,.highlight-box,.kalkulator-box{background:#292006!important}
+    .warning-box{background:#2a1215!important}
+    .info-box{background:#101c3f!important}
+    .tabel-kadar tr:nth-child(even){background-color:#292006!important}
+    .table-custom tr:hover td{background-color:#26272f!important}
+    .table-custom .rugi{color:#f87171!important}
+    .table-custom .untung{color:#4ade80!important}
+    /* Kontrol bawaan peramban (dropdown, scrollbar) ikut gelap */
+    option{background-color:#17181f;color:#f3f4f6}
+    ::selection{background-color:#eab308;color:#111827}
+    *{scrollbar-color:#3d3e49 #0a0a0c}
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 

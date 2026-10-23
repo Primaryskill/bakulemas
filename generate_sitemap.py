@@ -14,6 +14,8 @@ BLOG_DIR = "./blog"  # sesuaikan dengan lokasi folder blog di komputer kamu
 static_pages = [
     {"loc": "/", "priority": "1.0", "changefreq": "weekly"},
     {"loc": "/purwokerto", "priority": "0.95", "changefreq": "weekly"},
+    {"loc": "/cara-kerja", "priority": "0.9", "changefreq": "monthly"},
+    {"loc": "/area-layanan", "priority": "0.9", "changefreq": "monthly"},
     {"loc": "/blog/", "priority": "0.9", "changefreq": "weekly"},
 ]
 

@@ -1,0 +1,2 @@
+# Redirect www ke versi apex (canonical) agar tidak ada duplikasi konten
+https://www.bakulemas.com/* https://bakulemas.com/:splat 301
